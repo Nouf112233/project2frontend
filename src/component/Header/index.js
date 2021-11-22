@@ -2,6 +2,7 @@ import React from 'react'
 import {HiDocumentSearch} from "react-icons/hi"
 import {GiBasket} from "react-icons/gi"
 import {Link} from "react-router-dom"
+import logo from "./logo.PNG"
 import "./style.css"
 
 
@@ -10,7 +11,7 @@ function Header() {
     // const [{basket},{user},dispatch] from useStateValue();
     return (
         <div className="header">
-            <Link to="" ><img className="header-logo"src="" alt="logo" /></Link>
+            <Link to="/" ><img className="header-logo"src={logo} alt="logo" /></Link>
             <div className="header-search">
                 <input className="header-searchInput" type="text" />
                 <HiDocumentSearch className="header-searchIcon" />
