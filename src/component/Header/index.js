@@ -6,6 +6,8 @@ import "./style.css"
 
 
 function Header() {
+
+    // const [{basket},{user},dispatch] from useStateValue();
     return (
         <div className="header">
             <Link to="" ><img className="header-logo"src="" alt="logo" /></Link>
