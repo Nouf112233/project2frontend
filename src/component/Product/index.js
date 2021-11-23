@@ -40,7 +40,7 @@ const Product = (pro) => {
               </p>
             ))}
         </div>
-        <img src={pro.pro.image[0]} alt="product image" />
+        <img src={pro.pro.image} alt="product image" />
         <button onClick={() => addToBasket(pro._id)}>
           <BsBasket2 />
         </button>
