@@ -3,6 +3,7 @@ import {HiDocumentSearch} from "react-icons/hi"
 import {GiBasket} from "react-icons/gi"
 import {Link} from "react-router-dom"
 import logo from "./logo.PNG"
+import List from '../List'
 import "./style.css"
 
 
@@ -46,6 +47,7 @@ function Header() {
                 {/* </Link> */}
 
             </div>
+            <List />
             
             
             

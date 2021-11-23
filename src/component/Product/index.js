@@ -19,17 +19,18 @@ const Product = (pro) => {
 
   //     })
   // }
+  console.log(pro.pro);
   const addToBasket = () => {};
   return (
     <div className="product">
       <div className="product-info">
-        <p>{pro.name}</p>
+        <p>{pro.pro.name}</p>
         <p className="product-price">
           <small>$</small>
-          <strong>{pro.price}</strong>
+          <strong>{pro.pro.price}</strong>
         </p>
         <div className="product-rating">
-          {Array(pro.rating)
+          {Array(pro.pro.rating)
             .fill()
             .map((_, i) => (
               <p>
@@ -37,7 +38,7 @@ const Product = (pro) => {
               </p>
             ))}
         </div>
-        <img src={pro.image} alt="product image" />
+        <img src={pro.pro.image[0]} alt="product image" />
         <button onClick={() => addToBasket(pro._id)}>
           <BsBasket2 />
         </button>
