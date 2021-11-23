@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Product from "../Product";
 import Image from "./camp1.png";
-import Slider from "../Slider";
+// import Slider from "../Slider";
 
 import "./style.css";
 
@@ -26,53 +26,62 @@ function Home() {
     getPruduct6ById();
   }, []);
 
+
   const getPruduct1ById = async () => {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a13a9cf5529131208bfa9`
     );
     setProduct1(data.data);
-    // console.log(product1);
+    console.log(data.data);
   };
 
   const getPruduct2ById = async () => {
     const data = await axios.get(
-      `http://localhost:5000/product/id/619a1549cf5529131208bfab`
+      `http://localhost:5000/product/id/619a19cccf5529131208bfaf`
     );
     setProduct2(data.data);
-    // console.log(product2);
+    console.log(product2);
   };
+
+//   const getPruduct2ById = async () => {
+//     const data = await axios.get(
+//       `http://localhost:5000/product/id/619a1549cf5529131208bfab`
+//     );
+//     setProduct2(data.data);
+//     console.log(product2);
+//   };
   const getPruduct3ById = async () => {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a1d51cf5529131208bfb3`
     );
     setProduct3(data.data);
-    // console.log(product3);
+    console.log(product3);
   };
   const getPruduct4ById = async () => {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a240fcf5529131208bfb9`
     );
     setProduct4(data.data);
-    // console.log(product4);
+    console.log(product4);
   };
   const getPruduct5ById = async () => {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a325fcf5529131208bfcb`
     );
     setProduct5(data.data);
-    // console.log(product5);
+    console.log(product5);
   };
   const getPruduct6ById = async () => {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a59f2cf5529131208bfed`
     );
     setProduct6(data.data);
-    // console.log(product6);
+    console.log(product6);
   };
   return (
     <div className="home">
        
-      <Slider />
+      {/* <Slider /> */}
       <div className="home-container">
         <img className="home-image" src={image} alt="image" />
         <div className="home-row">

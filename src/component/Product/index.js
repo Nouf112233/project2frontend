@@ -1,10 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
 import { AiOutlineStar } from "react-icons/ai";
 import { BsBasket2 } from "react-icons/bs";
 import "./style.css";
 // import {useStateValue} from "./StateProvider";
 
 const Product = (pro) => {
+    // const[x,setX]=useState({pro.image[0]});
   // const [{basket},dispatch]=useStateValue();
   // const addToBasket=()=>{
   //     dispatchEvent({
@@ -19,7 +20,8 @@ const Product = (pro) => {
 
   //     })
   // }
-  console.log(pro.pro);
+
+  console.log(pro);
   const addToBasket = () => {};
   return (
     <div className="product">
@@ -33,7 +35,7 @@ const Product = (pro) => {
           {Array(pro.pro.rating)
             .fill()
             .map((_, i) => (
-              <p>
+              <p key={i}>
                 <AiOutlineStar />
               </p>
             ))}

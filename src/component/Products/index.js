@@ -24,8 +24,10 @@ function Products(kind) {
 
   return (
     <div className="products">
-      {products.map((item) => {
-        <Product pro={item} />;
+      {products.map((item,i) => {
+          <div key={i}>
+        <Product pro={item} />
+        </div>
       })}
     </div>
   );
