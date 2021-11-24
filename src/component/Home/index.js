@@ -84,6 +84,22 @@ function Home() {
 
     setProduct6(data.data);
   };
+  // const addToBasket = (id) => {
+  //   const user = JSON.parse(sessionStorage.getItem("user"));
+  //   if (user) {
+  //     let email = user.email;
+  //     let cart = user.cart;
+  //     cart.push(id);
+  //     let newUser = {
+  //       email: email,
+  //       cart: cart,
+  //     };
+  //     axios.put("http://localhost:5000/user", { email:email, id: id });
+  //     sessionStorage.setItem("user", JSON.stringify(newUser));
+  //   } else {
+  //     navigate("/signin");
+  //   }
+  // };
 
   return (
     <>
