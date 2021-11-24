@@ -9,51 +9,57 @@ import Product from "../Product";
 
 function Products() {
   const navigate = useNavigate();
-  const {kind} = useParams();
+  const { kind } = useParams();
   const [products, setProducts] = useState([]);
- 
+
+  console.log(kind);
 
   useEffect(() => {
     getAllPruduct();
   }, []);
+  
+  useEffect(() => {
+    getAllPruduct();
+  }, [kind]);
 
   const getAllPruduct = async () => {
     const product = await axios.get(
       `http://localhost:5000/product/kind/${kind}`
     );
 
+    console.log(product.data);
     setProducts(product.data);
-    // console.log(product.data);
   };
   const addToBasket = () => {};
 
   return (
     <div className="products">
-      {products.length && products.map((pro,i) => {
-        console.log(pro);
-        <div className="product" key={i}>
-        <div className="product-info">
-          <p>{pro.name}</p>
-          <p className="product-price">
-            <small>$</small>
-            <strong>{pro.price}</strong>
-          </p>
-          <div className="product-rating">
-            {Array(pro.rating)
-              .fill()
-              .map((_, i) => (
-                <p key={i}>
-                  <AiOutlineStar />
-                </p>
-              ))}
+      {products.length &&
+        products.map((pro, i) => (
+          // console.log(pro);
+          <div className="product" key={i}>
+            <div className="product-info">
+              <p>{pro.name}</p>
+              <p className="product-price">
+                <small>$</small>
+                <strong>{pro.price}</strong>
+              </p>
+              <div className="product-rating">
+                {Array(pro.rating)
+                  .fill()
+                  .map((_, i) => (
+                    <p key={i}>
+                      <AiOutlineStar />
+                    </p>
+                  ))}
+              </div>
+              <img src={pro.image[0]} alt="product image" />
+              <button onClick={() => addToBasket(pro._id)}>
+                <BsBasket2 />
+              </button>
+            </div>
           </div>
-          <img src={pro.image[0]} alt="product image" />
-          <button onClick={() => addToBasket(pro._id)}>
-            <BsBasket2 />
-          </button>
-        </div>
-      </div>
-      })}
+        ))}
     </div>
   );
 }

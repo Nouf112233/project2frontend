@@ -1,7 +1,7 @@
 import React from "react";
 import { HiDocumentSearch } from "react-icons/hi";
 import { GiBasket } from "react-icons/gi";
-import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import logo from "./logo.PNG";
 import List from "../List";
 import "./style.css";
@@ -63,41 +63,41 @@ function Header() {
         <List />
       </div>
       <div className="header lists">
-        <NavLink exact to="/products/Campingear" activeStyle={activeStyle} className="list">
+        <Link to="/products/Camping gear" className="list">
           Camping gear
-        </NavLink>
+        </Link>
         {" | "}
-        <NavLink to="/products/Hiking" activeStyle={activeStyle} className="list">
+        <Link to="/products/Hiking"className="list">
           Hiking
-        </NavLink>
+        </Link>
         {" | "}
-        <NavLink to="/products/Weapsons and Ammunitition" activeStyle={activeStyle} className="list">
+        <Link to="/products/Weapsons and Ammunitition"className="list">
           Weapsons
-        </NavLink>
+        </Link>
         {" | "}
-        <NavLink to="/products/Light and guides" activeStyle={activeStyle} className="list">
+        <Link to="/products/Light and guides"className="list">
           Light and guides
-        </NavLink>
+        </Link>
         {" | "}
-        <NavLink to="/products/Jackets" activeStyle={activeStyle} className="list">
+        <Link to="/products/Jackets" className="list">
           Jackets
-        </NavLink>
+        </Link>
         {" | "}
-        <NavLink to="/products/outdoor trip" activeStyle={activeStyle} className="list">
+        <Link to="/products/outdoor trip" className="list">
           Outdoor trip
-        </NavLink>
+        </Link>
         {" | "}
-        <NavLink to="/products/Fishing and diving" activeStyle={activeStyle} className="list">
+        <Link to="/products/Fishing and diving" className="list">
           Fishing and diving
-        </NavLink>
+        </Link>
         {" | "}
-        <NavLink to="/products/Knives" activeStyle={activeStyle} className="list">
+        <Link to="/products/Knives" className="list">
           Knives
-        </NavLink>
+        </Link>
         {" | "}
-        <NavLink to="/products/Foot wear" activeStyle={activeStyle} className="list">
+        <Link to="/products/Foot wear" className="list">
           Footwear
-        </NavLink>
+        </Link>
       </div>
     </>
   );
