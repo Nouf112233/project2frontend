@@ -8,6 +8,7 @@ import Basket from "./component/Basket";
 import Products from "./component/Products";
 import Signin from "./component/Signin";
 import Register from "./component/Register";
+import New from "./component/New";
 import Sale from "./component/Sale";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/products/:kind" element={<Products />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/new" element={<New />} />
         <Route path="/sale" element={<Sale />} />
       </Routes>
     </>

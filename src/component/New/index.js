@@ -1,51 +1,40 @@
 import React from "react";
+import Header from "../Header";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 import { BsBasket2 } from "react-icons/bs";
-import Header from "../Header";
-import "./style.css";
 import axios from "axios";
-import Product from "../Product";
+import "./style.css";
 
-function Products() {
+function New() {
   const navigate = useNavigate();
-  const { kind } = useParams();
-  const [products, setProducts] = useState([]);
 
-  console.log(kind);
+  const [newProducts, setNewProducts] = useState([]);
+
+  const getAllPruduct = async () => {
+    const product = await axios.get(`http://localhost:5000/product/new`);
+    console.log(product.data);
+    setNewProducts(product.data);
+  };
+  const addToBasket = () => {};
 
   useEffect(() => {
     getAllPruduct();
   }, []);
-
-  useEffect(() => {
-    getAllPruduct();
-  }, [kind]);
-
-  const getAllPruduct = async () => {
-    const product = await axios.get(
-      `http://localhost:5000/product/kind/${kind}`
-    );
-
-    console.log(product.data);
-    setProducts(product.data);
-  };
-  const addToBasket = () => {};
-
   return (
     <>
       <Header />
-      <div className="hom">
+      <div className="new">
         <div className="home-container">
           <img
-            className="homeimage"
-            src="https://i.pinimg.com/236x/17/18/77/1718774035d8f01a42c9d16aa8ccf37d.jpg"
+            className="newimage"
+            src="https://i.pinimg.com/236x/7b/93/b4/7b93b4e4d32642ae20f40d92a13d77cd.jpg"
             alt="image"
           />
-          <div className="products">
-            {products.length &&
-              products.map((pro, i) => (
+          <div className="new-products">
+            {newProducts.length &&
+              newProducts.map((pro, i) => (
                 // console.log(pro);
                 <div className="product" key={i}>
                   <div className="product-info">
@@ -77,4 +66,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default New;
