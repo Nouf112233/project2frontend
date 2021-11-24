@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Header from "../Header";
 import axios from "axios";
 import Product from "../Product";
 import Image from "./camp1.png";
@@ -85,6 +86,8 @@ function Home() {
   };
 
   return (
+    <>
+    <Header />
     <div className="home">
       {product1 && (
         <div className="home-container">
@@ -104,6 +107,7 @@ function Home() {
         </div>
       )}
     </div>
+    </>
   );
 }
 

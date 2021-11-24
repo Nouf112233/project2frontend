@@ -20,6 +20,10 @@ function Header() {
   const goSignin = () => {
     navigate(`/signin`);
   };
+  
+  const goSale = () => {
+    navigate(`/sale`);
+  };
 
   const activeStyle = { color: "blue" };
   return (
@@ -40,7 +44,7 @@ function Header() {
           </div>
           {/* </Link> */}
           {/* <Link to="/order" > */}
-          <div className="header-option">
+          <div className="header-option" onClick={goSale} >
             <span className="header-optionLineOne">osteal</span>
             <span className="header-optionLineTwo">& Sale</span>
           </div>

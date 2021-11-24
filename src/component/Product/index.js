@@ -4,22 +4,23 @@ import { BsBasket2 } from "react-icons/bs";
 import "./style.css";
 
 
-const Product = (pro) => {
-  // const [product,setProduct]=useState({})
+const Product = ({pro}) => {
+  // const [prod,setProd]=useState(null);
 
   // useEffect(() => {
-  //   setProduct(pro);
-  //   console.log(product);
+  //   setProd(pro);
+  //   // console.log(pro);
    
   // }, []);
   console.log("pro",pro);
   
 
-  // console.log(pro);
+  
   
   const addToBasket = () => {};
   return (
     <div className="product">
+      {pro && (
       <div className="product-info">
         <p>{pro.name}</p>
         <p className="product-price">
@@ -39,7 +40,7 @@ const Product = (pro) => {
         <button onClick={() => addToBasket(pro._id)}>
           <BsBasket2 />
         </button>
-      </div>
+      </div>)}
     </div>
   );
 };

@@ -8,19 +8,21 @@ import Basket from "./component/Basket";
 import Products from "./component/Products";
 import Signin from "./component/Signin";
 import Register from "./component/Register";
+import Sale from "./component/Sale";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
+    <>
+      {/* <Header /> */}
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/basket" element={<Basket />} />
         <Route path="/products/:kind" element={<Products />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/sale" element={<Sale />} />
       </Routes>
-    </div>
+    </>
   );
 }
 

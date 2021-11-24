@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 import { BsBasket2 } from "react-icons/bs";
+import Header from "../Header";
 import "./style.css";
 import axios from "axios";
 import Product from "../Product";
@@ -17,7 +18,7 @@ function Products() {
   useEffect(() => {
     getAllPruduct();
   }, []);
-  
+
   useEffect(() => {
     getAllPruduct();
   }, [kind]);
@@ -33,6 +34,8 @@ function Products() {
   const addToBasket = () => {};
 
   return (
+    <>
+    <Header />
     <div className="products">
       {products.length &&
         products.map((pro, i) => (
@@ -61,6 +64,7 @@ function Products() {
           </div>
         ))}
     </div>
+    </>
   );
 }
 
