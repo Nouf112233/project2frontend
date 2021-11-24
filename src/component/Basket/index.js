@@ -14,15 +14,15 @@ function Basket() {
         />
         <div>
           <h2 className="checkout-title">Your Shopping Basket</h2>
-          {/* {basket.map(item=>{
+          {basket.length && basket.map(item=>{
                     <CheckoutProduct 
                     id={item._id} 
                     name={item.name}
-                    image={item.image[0]} 
+                    image={item.image} 
                     price={item.price}
                     rating={item.rating} 
                     />
-                })} */}
+                })}
         </div>
       </div>
       <div className="checkout-right">
