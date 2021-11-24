@@ -10,12 +10,12 @@ import "./style.css";
 function Home() {
   const [image] = useState(Image);
   const navigate = useNavigate();
-  const [product1, setProduct1] = useState([]);
-  const [product2, setProduct2] = useState([]);
-  const [product3, setProduct3] = useState([]);
-  const [product4, setProduct4] = useState([]);
-  const [product5, setProduct5] = useState([]);
-  const [product6, setProduct6] = useState([]);
+  const [product1, setProduct1] = useState(null);
+  const [product2, setProduct2] = useState(null);
+  const [product3, setProduct3] = useState(null);
+  const [product4, setProduct4] = useState(null);
+  const [product5, setProduct5] = useState(null);
+  const [product6, setProduct6] = useState(null);
 
   useEffect(() => {
     getPruduct1ById();
@@ -26,77 +26,83 @@ function Home() {
     getPruduct6ById();
   }, []);
 
-
   const getPruduct1ById = async () => {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a13a9cf5529131208bfa9`
     );
+    // console.log(data.data);
+
     setProduct1(data.data);
-    console.log(data.data);
   };
 
   const getPruduct2ById = async () => {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a19cccf5529131208bfaf`
     );
+    // console.log(data.data);
+
     setProduct2(data.data);
-    console.log(product2);
   };
 
-//   const getPruduct2ById = async () => {
-//     const data = await axios.get(
-//       `http://localhost:5000/product/id/619a1549cf5529131208bfab`
-//     );
-//     setProduct2(data.data);
-//     console.log(product2);
-//   };
+  //   const getPruduct2ById = async () => {
+  //     const data = await axios.get(
+  //       `http://localhost:5000/product/id/619a1549cf5529131208bfab`
+  //     );
+  //     setProduct2(data.data);
+  //     console.log(product2);
+  //   };
   const getPruduct3ById = async () => {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a1d51cf5529131208bfb3`
     );
+    // console.log(data.data);
+
     setProduct3(data.data);
-    console.log(product3);
   };
   const getPruduct4ById = async () => {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a240fcf5529131208bfb9`
     );
+    // console.log(data.data);
+
     setProduct4(data.data);
-    console.log(product4);
   };
   const getPruduct5ById = async () => {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a325fcf5529131208bfcb`
     );
+    // console.log(data.data);
+
     setProduct5(data.data);
-    console.log(product5);
   };
   const getPruduct6ById = async () => {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a59f2cf5529131208bfed`
     );
+    // console.log(data.data);
+
     setProduct6(data.data);
-    console.log(product6);
   };
+
   return (
     <div className="home">
-       
-      {/* <Slider /> */}
-      <div className="home-container">
-        <img className="home-image" src={image} alt="image" />
-        <div className="home-row">
-          <Product pro={product1} />
-          <Product pro={product2} />
+      {product1 && (
+        <div className="home-container">
+          <img className="home-image" src={image} alt="image" />
+          <div className="home-row">
+            <Product pro={product1} />
+            <Product pro={product2} />
+          </div>
+          <div className="home-row">
+            <Product pro={product3} />
+            <Product pro={product4} />
+            <Product pro={product5} />
+          </div>
+          <div className="home-row">
+            <Product pro={product6} />
+          </div>
         </div>
-        <div className="home-row">
-          <Product pro={product3} />
-          <Product pro={product4} />
-          <Product pro={product5} />
-        </div>
-        <div className="home-row">
-          <Product pro={product6} />
-        </div>
-      </div>
+      )}
     </div>
   );
 }

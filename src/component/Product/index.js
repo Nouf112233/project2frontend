@@ -1,25 +1,33 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import { AiOutlineStar } from "react-icons/ai";
 import { BsBasket2 } from "react-icons/bs";
 import "./style.css";
 
 
 const Product = (pro) => {
+  // const [product,setProduct]=useState({})
+
+  // useEffect(() => {
+  //   setProduct(pro);
+  //   console.log(product);
+   
+  // }, []);
+  console.log("pro",pro);
   
 
-  console.log(pro);
+  // console.log(pro);
+  
   const addToBasket = () => {};
   return (
     <div className="product">
-      {console.log(pro)}
       <div className="product-info">
-        <p>{pro.pro.name}</p>
+        <p>{pro.name}</p>
         <p className="product-price">
           <small>$</small>
-          <strong>{pro.pro.price}</strong>
+          <strong>{pro.price}</strong>
         </p>
         <div className="product-rating">
-          {Array(pro.pro.rating)
+          {Array(pro.rating)
             .fill()
             .map((_, i) => (
               <p key={i}>
@@ -27,8 +35,8 @@ const Product = (pro) => {
               </p>
             ))}
         </div>
-        <img src={pro.pro.image} alt="product image" />
-        <button onClick={() => addToBasket(pro.pro._id)}>
+        <img src={pro.image[0]} alt="product image" />
+        <button onClick={() => addToBasket(pro._id)}>
           <BsBasket2 />
         </button>
       </div>
