@@ -22,9 +22,9 @@
     height: 500px;
 }
 .navigation-manual{
-    /* position: absolute; */
+    position: absolute;
     width: 800px;
-    margin-top:40px;
+    margin-top:-40px;
     display: flex;
     justify-content: center;
 }

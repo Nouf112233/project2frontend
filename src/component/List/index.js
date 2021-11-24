@@ -5,9 +5,16 @@ import {BiCategoryAlt} from 'react-icons/bi'
 import './style.css'
 
 function List() {
-    const [list,setList]=useState(false)
+    // const [list,setList]=useState(false)
+    // const [add, setAdd]=useState(false);
+
+    // const handleToggle=()=>{
+    //     setAdd(!add);
+
+    // }
     return (
-    <div className="sidebar">
+        <>
+    {/* <div className={add?"close":"sidebar"}>
         <div className="logo-details">
             <BiCategoryAlt className="logo"/>
             <span className="logo-name">Product Categories</span>
@@ -58,6 +65,13 @@ function List() {
         </ul>
 
     </div>
+    <section className="home-section">
+        <div className="home-content">
+        <BiCategoryAlt className="bx-menu" onClick={handleToggle}/>
+            <span className="text">deop down sidebar</span>
+        </div>
+    </section> */}
+    </>
     )
 }
 

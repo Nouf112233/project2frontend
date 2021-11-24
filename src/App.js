@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router';
 import './App.css';
 import Header from './component/Header';
 import Home from './component/Home';
+import Basket from './component/Basket';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <Routes>
       <Route exact path="/" element={<Home />} />
+      <Route exact path="/basket" element={<Basket />} />
     </Routes>
 
       

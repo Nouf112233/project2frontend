@@ -1,70 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Zen+Antique+Soft&display=swap')
 
-* {
+*{
     font-family: 'Open Sans', sans-serif ,'Zen Antique Soft', serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
 
-}
-.sidebar{
-    position:fixed ;
-    top:64px;
-    /* left:0; */
-    height: 100%;
-    width: 260px;
-    background: #11101d;
-
-}
-.sidebar .logo-details{
-    height: 60px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-.sidebar .logo-details .logo{
-    font-size: 20px;
-    color: #fff;
-    /* background: crimson; */
-    height: 50px;
-    min-width: 78px;
-    text-align: center;
-    line-height: 50px;
-
-}
-.sidebar .logo-details .logo-name{
-    font-size: 15px;
-    color: #fff;
-    font-weight: 600;
-}
-.sidebar .nav-links{
-    height: 100%;
-    padding-top: 30px;
-    margin-right: 2px;
-
-}
-.sidebar .nav-links li{
-    position: relative;
-    list-style: none;
-    margin-right: 5px;
-    margin-bottom: 5px;
-
-}
-.sidebar .nav-links li .logoItem{
-    height: 20px;
-    min-width: 78px;
-    text-align: center;
-    line-height: 50px;
-    color: #fff;
-    font-size: 20px;
-
-}
-.link-name{
-   font-size: 15px; 
-   font-weight: 400 ;
-   color: #fff;
-}
-.logoItem, .link-name{
-  display: inline;
-}
+ } 

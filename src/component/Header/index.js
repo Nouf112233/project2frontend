@@ -1,18 +1,27 @@
 import React from 'react'
 import {HiDocumentSearch} from "react-icons/hi"
 import {GiBasket} from "react-icons/gi"
-import {Link} from "react-router-dom"
+import {Link , useNavigate, useParams }  from "react-router-dom"
 import logo from "./logo.PNG"
 import List from '../List'
 import "./style.css"
 
 
 function Header() {
+    const navigate = useNavigate()
 
     // const [{basket},{user},dispatch] from useStateValue();
+    const goHome=()=>{
+        navigate(`/`)
+    }
+    
+    const goBasket=()=>{
+        navigate(`/basket`)
+    }
     return (
+        <>
         <div className="header">
-            <Link to="/" ><img className="header-logo"src={logo} alt="logo" /></Link>
+            <Link to="/"  onClick={goHome}><img className="header-logo"src={logo} alt="logo" /></Link>
             <div className="header-search">
                 <input className="header-searchInput" type="text" />
                 <HiDocumentSearch className="header-searchIcon" />
@@ -37,7 +46,7 @@ function Header() {
                 </div>
                 {/* </Link> */}
                 {/* <Link to="/basket" > */}
-                <div className="header-optionBasket">
+                <div className="header-optionBasket" onClick={goBasket}>
                  <GiBasket />
                 <span className="header-optionLineTwo header-basketCount">
                     0
@@ -52,6 +61,10 @@ function Header() {
             
             
         </div>
+        <div className="header">
+
+        </div>
+        </>
     )
 }
 
