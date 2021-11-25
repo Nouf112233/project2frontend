@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
-import { BsBasket2 } from "react-icons/bs";
+import { GrLike } from "react-icons/gr";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 import Header from "../Header";
 import "./style.css";
 import axios from "axios";
@@ -12,11 +13,20 @@ function Description() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [like, setLike] = useState(false);
 
   const getproduct = async () => {
-    const product = await axios.get(`http://localhost:5000/product/id/${id}`);
-    console.log("prpduct", product.data);
-    setProduct(product.data);
+    const prod = await axios.get(`http://localhost:5000/product/id/${id}`);
+    console.log("prpduct", prod.data);
+    setProduct(prod.data);
+  };
+
+  const addlike = (id) => {
+    let lik = product.rating;
+    lik++;
+    setLike(!like);
+    // setProduct({_id:pro._id,kind:pro.kind,name:pro.name,specifications:pro.specifications,Notice:pro.Notice,price:pro.price,rating:lik,newe:pro.newe,image:pro.image,discound:pro.discound})
+    axios.put("http://localhost:5000/product/like", { rating: lik, id: id });
   };
 
   const addToBasket = (id) => {
@@ -38,14 +48,12 @@ function Description() {
 
   useEffect(() => {
     getproduct();
-  }, []);
+  }, [like]);
 
   return (
     <>
-   
       <Header />
       {product && (
-        
         <div className="main">
           <div className="desc-title">
             <p>{product.kind}</p>
@@ -61,6 +69,10 @@ function Description() {
                       <AiOutlineStar className="star" />
                     </p>
                   ))}
+                <GrLike
+                  onClick={() => addlike(product._id)}
+                  className="lik-button"
+                />
               </div>
               <p className="disc-price">
                 <sup>$</sup>
@@ -76,9 +88,11 @@ function Description() {
             </div>
             <div className="main-image">
               <img src={product.image[0]} alt="image" />
-              <button onClick={() => addToBasket(product._id)}>
-                Add to basket
-              </button>
+
+              <MdOutlineAddShoppingCart
+                onClick={() => addToBasket(product._id)}
+                className="ad-button"
+              />
             </div>
             <div className="slider-image">
               {product.image.map((item) => (
@@ -86,11 +100,11 @@ function Description() {
               ))}
             </div>
           </div>
-          
+
           <div className="notic">
-            <Notic id={id}/>
+            <Notic id={id} />
           </div>
-         
+
           <div className="comments">
             <Comments notic={product.Notice} />
           </div>

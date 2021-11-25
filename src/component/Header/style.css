@@ -62,14 +62,15 @@
     margin-right: 10px;
 }
 .list{
-margin-right: 20px;
-font-size: 16px;
+/* margin-right: 20px; */
+font-size: 1.2vw;
 font-weight: bold;
 color: white;
-text-align: center;
+/* text-align: center; */
 }
 .lists{
-    align-items: center;
-    text-align: center;
-    padding-left: 15px;
-}
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+} 
+

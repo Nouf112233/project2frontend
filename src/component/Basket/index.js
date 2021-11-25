@@ -58,6 +58,9 @@ function Basket() {
     sessionStorage.setItem("user", JSON.stringify(newUser));
     setRemove(!remove);
   };
+  useEffect(() => {
+    
+  }, [remove]);
 
 
 
@@ -97,7 +100,7 @@ function Basket() {
                           .fill()
                           .map((_, i) => (
                             <p>
-                              <AiOutlineStar />
+                              <AiOutlineStar className="star"/>
                             </p>
                           ))}
                       </div>

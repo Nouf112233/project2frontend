@@ -13,14 +13,9 @@ const Product = ({ pro }) => {
 
   
   useEffect(() => {
-    // const prod = axios.get(
-    //   `http://localhost:5000/product/id/${product._id}`
-    // );
-    // console.log(prod.data);
-    // setProduct(prod.data);
-
+   
    }, [like]);
-  // console.log("pro", pro);
+  
 
   const addToBasket = (id) => {
     const user = JSON.parse(sessionStorage.getItem("user"));

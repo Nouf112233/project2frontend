@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import { HiDocumentSearch } from "react-icons/hi";
 import { BsCart4 } from "react-icons/bs";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -8,6 +8,7 @@ import axios from "axios";
 import "./style.css";
 
 function Header() {
+  const [item,setItem]=useState(0);
   const navigate = useNavigate();
 
   // const [{basket},{user},dispatch] from useStateValue();
@@ -24,11 +25,20 @@ function Header() {
       // setSearch(response.data.results);
     }
   };
-
+  
+  const getUserItem=()=>{
+    let user = JSON.parse(sessionStorage.getItem("user"));
+    if(user){
+    let carts=user.cart;
+    let numOfCarts=carts.length;
+    setItem(numOfCarts);
+    }
+  }
 
   const goBasket = () => {
     navigate(`/basket`);
   };
+
   const goSignin = () => {
     navigate(`/signin`);
   };
@@ -40,7 +50,9 @@ function Header() {
     navigate(`/new`);
   };
 
-  const activeStyle = { color: "blue" };
+  useEffect(()=>{
+    getUserItem();
+  },[])
   return (
     <>
       <div className="header">
@@ -78,7 +90,7 @@ function Header() {
           <div className="header-optionBasket" onClick={goBasket}>
             <BsCart4 />
             <span className="header-optionLineTwo header-basketCount">
-              0{/* {basket?.length} */}
+              {item}
             </span>
           </div>
           {/* </Link> */}
