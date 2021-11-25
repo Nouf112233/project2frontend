@@ -55,7 +55,7 @@ const Product = ({ pro }) => {
     <div className="product">
       {product && (
         <div className="product-info" >
-          <p>{product.name}</p>
+          <p className="product-name">{product.name}</p>
           <p className="product-price">
             <small>$</small>
             <strong>{product.price}</strong>
@@ -65,15 +65,15 @@ const Product = ({ pro }) => {
               .fill()
               .map((_, i) => (
                 <p key={i}>
-                  <AiOutlineStar />
+                  <AiOutlineStar className="star"/>
                 </p>
               ))}
           </div>
           <img src={product.image[0]} alt="product image" onClick={() => discription(product._id)}/>
-          {/* <button onClick={() => addToBasket(pro._id)}> */}
+          <div className="buttons">
             <GrLike onClick={() => addlike(product._id)} className="like-button"/>
             <MdOutlineAddShoppingCart onClick={() => addToBasket(product._id)} className="add-button"/>
-          {/* </button> */}
+          </div>
         </div>
       )}
     </div>

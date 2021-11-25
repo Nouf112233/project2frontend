@@ -128,35 +128,6 @@ function Products() {
               products.map((pro, i) => (
                 // console.log(pro);
                 <div className="product" key={pro._id}>
-                  {/* <div className="product-info">
-                    <p>{pro.name}</p>
-                    <p className="product-price">
-                      <small>$</small>
-                      <strong>{pro.price}</strong>
-                    </p>
-                    <div className="product-rating">
-                      {Array(pro.rating)
-                        .fill()
-                        .map((_, i) => (
-                          <p key={i}>
-                            <AiOutlineStar />
-                          </p>
-                        ))}
-                    </div>
-                    <img
-                      src={pro.image[0]}
-                      alt="product image"
-                      onClick={() => discription(pro._id)}
-                    />
-                    <GrLike
-                      onClick={() => addlike(pro._id)}
-                      className="like-button"
-                    />
-                    <MdOutlineAddShoppingCart
-                      onClick={() => addToBasket(pro._id)}
-                      className="add-button"
-                    />
-                  </div> */}
                   <Product pro={pro} />
                 </div>
               ))}

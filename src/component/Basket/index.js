@@ -10,8 +10,12 @@ function Basket() {
   const [basketProducts, setBasketProducts] = useState([]);
   const [user, setUser] = useState(null);
   const [remove,setRemove]=useState(false);
+  const [total,setTotal]=useState(0);
+  const [count,setCount]=useState(0);
 
-  const productInBasket = []
+  let productInBasket = []
+  let inTotal=0;
+  let inCount=0;
 
   const getBasketProduct = async () => {
     let user = JSON.parse(sessionStorage.getItem("user"));
@@ -30,7 +34,13 @@ function Basket() {
     const product = await axios.get(`http://localhost:5000/product/id/${item}`);
     // console.log("product", product.data);
     productInBasket.push(product.data)
-    if(length - 1 === i) setBasketProducts(productInBasket)
+    inTotal+=product.data.price;
+    inCount++;
+    if(length - 1 === i){
+      setBasketProducts(productInBasket);
+      setTotal(inTotal);
+      setCount(inCount);
+    } 
   };
 
   const removeCart = (id, i) => {
@@ -57,6 +67,7 @@ function Basket() {
 
   return (
     <>
+    {console.log("sss",basketProducts)}
       <Header />
       <div className="checkout">
         <div className="checkout-left">
@@ -100,7 +111,7 @@ function Basket() {
           </div>
         </div>
         <div className="checkout-right">
-          <Subtotal />
+          <Subtotal total={total} count={count}/>
         </div>
       </div>
     </>

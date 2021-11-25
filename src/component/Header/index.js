@@ -4,6 +4,7 @@ import { BsCart4 } from "react-icons/bs";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import logo from "./logo.PNG";
 import List from "../List";
+import axios from "axios";
 import "./style.css";
 
 function Header() {
@@ -13,6 +14,17 @@ function Header() {
   const goHome = () => {
     navigate(`/`);
   };
+
+  const getSearched = async (e) => {
+    if (e.key === "Enter") {
+      let myTerm = e.target.value;
+      const response = await axios.get(
+        `http://localhost:5500/audiobooks/search/${myTerm}`
+      );
+      // setSearch(response.data.results);
+    }
+  };
+
 
   const goBasket = () => {
     navigate(`/basket`);
@@ -36,7 +48,11 @@ function Header() {
           <img className="header-logo" src={logo} alt="logo" />
         </Link>
         <div className="header-search">
-          <input className="header-searchInput" type="text" />
+          <input className="header-searchInput" type="text" onKeyDown={getSearched}
+        autoFocus
+        id="search"
+        placeholder="search"
+        />
           <HiDocumentSearch className="header-searchIcon" />
         </div>
         <div className="header-nav">

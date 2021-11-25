@@ -40,14 +40,17 @@ function Home() {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a19cccf5529131208bfaf`
     );
+   
 
     setProduct2(data.data);
   };
 
+  
   const getPruduct3ById = async () => {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a1d51cf5529131208bfb3`
     );
+   
 
     setProduct3(data.data);
   };
@@ -55,13 +58,14 @@ function Home() {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a240fcf5529131208bfb9`
     );
-
+   
     setProduct4(data.data);
   };
   const getPruduct5ById = async () => {
     const data = await axios.get(
-      `http://localhost:5000/product/id/619a325fcf5529131208bfcb`
+      `http://localhost:5000/product/id/619a332ccf5529131208bfcd`
     );
+
 
     setProduct5(data.data);
   };
@@ -69,32 +73,34 @@ function Home() {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a59f2cf5529131208bfed`
     );
+  
 
     setProduct6(data.data);
   };
+  
 
   return (
     <>
-      <Header />
-      <div className="home">
-        {product1 && (
-          <div className="home-container">
-            <img className="home-image" src={image} alt="image" />
-            <div className="home-row">
-              <Product pro={product1} />
-              <Product pro={product2} />
-            </div>
-            <div className="home-row">
-              <Product pro={product3} />
-              <Product pro={product4} />
-              <Product pro={product5} />
-            </div>
-            <div className="home-row">
-              <Product pro={product6} />
-            </div>
+    <Header />
+    <div className="home">
+      {product1 && (
+        <div className="home-container">
+          <img className="home-image" src={image} alt="image" />
+          <div className="home-row">
+            <Product pro={product1} />
+            <Product pro={product2} />
           </div>
-        )}
-      </div>
+          <div className="home-row">
+            <Product pro={product3} />
+            <Product pro={product4} />
+            <Product pro={product5} />
+          </div>
+          <div className="home-row">
+            <Product pro={product6} />
+          </div>
+        </div>
+      )}
+    </div>
     </>
   );
 }
