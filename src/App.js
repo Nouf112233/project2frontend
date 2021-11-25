@@ -10,6 +10,7 @@ import Signin from "./component/Signin";
 import Register from "./component/Register";
 import New from "./component/New";
 import Sale from "./component/Sale";
+import Description from "./component/Discription";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/new" element={<New />} />
         <Route path="/sale" element={<Sale />} />
+        <Route path="/discription/:id" element={<Description />} />
+        
       </Routes>
     </>
   );

@@ -48,6 +48,10 @@ function Products() {
     }
   };
 
+  const discription =(id)=>{
+    navigate(`/discription/${id}`);
+  }
+
   return (
     <>
       <Header />
@@ -62,7 +66,7 @@ function Products() {
             {products.length &&
               products.map((pro, i) => (
                 // console.log(pro);
-                <div className="product" key={i}>
+                <div className="product" key={i} onClick={() => discription(pro._id)}>
                   <div className="product-info">
                     <p>{pro.name}</p>
                     <p className="product-price">

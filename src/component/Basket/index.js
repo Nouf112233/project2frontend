@@ -4,85 +4,112 @@ import axios from "axios";
 // import CheckoutProduct from "../checkoutProduct";
 import { AiOutlineStar } from "react-icons/ai";
 import Subtotal from "../Subtotal";
+import "./style.css";
 
 function Basket() {
+  const [basketProducts, setBasketProducts] = useState([]);
+  const [user, setUser] = useState(null);
 
-  const [basket, setBasket] = useState([]);
-  const [email,setEmail]=useState("")
+  const productInBasket = []
 
-  const getBasketProduct= async()=>{
-    let user=JSON.parse(sessionStorage.getItem("user"));
-    let carts=user.cart;
+  const getBasketProduct = async () => {
+    let user = JSON.parse(sessionStorage.getItem("user"));
+    // console.log("user", user);
+    if (user) {
+      let carts = user.cart;
+    //   console.log("carts", carts);
+      setUser(user);
+      carts.forEach((item, i) => {
+        getproduct(item, carts.length , i);
+      });
 
-    console.log("user",user);
-
-    if(user){
-        const cart=carts.map(item=>{
-                 console.log("item",item);
-                  return  item;
-                //   axios.get(
-                //     `http://localhost:5000/product/id/${item}`
-         } );
-                //   return pro;
-                console.log("cart",cart)   
-                setBasket(cart)    
-        }  
     }
-  
 
-  const removeCart = (id,i) => {
-        
-}
 
-//   useEffect(() => {
-//     getBasketProduct();
-//   }, []);
+  };
+
+
+
+  const getproduct = async (item,length, i) => {
+    const product = await axios.get(`http://localhost:5000/product/id/${item}`);
+    // console.log("product", product.data);
+    productInBasket.push(product.data)
+    if(length - 1 === i) setBasketProducts(productInBasket)
+  };
+
+
+
+  const removeCart = (id, i) => {
+    let email = user.email;
+    let cart = user.cart;
+    cart.splice(i, 1);
+      let newUser = {
+        email: email,
+        cart: cart,
+      };
+      setUser(newUser);
+    // console.log(email);
+    axios.delete(`http://localhost:5000/user`, { email: email, id: id });
+    // user.cart.splice(i, 1);
+    sessionStorage.setItem("user", JSON.stringify(newUser));
+  };
+
+    // useEffect(() => {
+   
+    // }, []);
 
   useEffect(() => {
     getBasketProduct();
   }, []);
 
   return (
-      <>
+    <>
       <Header />
-    <div className="checkout">
-      <div className="checkout-left">
-        <img
-          className="checkout-left"
-          src="https://i.pinimg.com/236x/30/45/d6/3045d6e4080109bd6b6645cf104ea94b.jpg"
-          alt="basket logo"
-        />
-        <div>
-          <h2 className="checkout-title">Your Shopping Basket</h2>
-          {/* {basket && (basket.map((item,i)=>{
-              return(
-                    <div className="checkoutProduct">
-                    <img src={item.image[0]} className="checkoutProduct-image" />
+      <div className="checkout">
+        <div className="checkout-left">
+          <img
+            className="checkout-left"
+            src="https://i.pinimg.com/236x/30/45/d6/3045d6e4080109bd6b6645cf104ea94b.jpg"
+            alt="basket logo"
+          />
+          <div>
+            <h2 className="checkout-title">Your Shopping Basket</h2>
+            {basketProducts.length &&
+              basketProducts.map((item, i) => {
+                return (
+                  <div className="checkoutProduct">
+                    <img
+                      src={item.image[0]}
+                      className="checkoutProduct-image"
+                    />
                     <div className="checkoutProduct-info">
-                        <p className="checkoutProduct-title">
-                            {item.name}
-                        </p>
-                        <p className="checkoutProduct-price">
-                            <small>$</small>
-                            <strong>{item.price}</strong>
-                        </p>
-                        <div className="checkoutProduct-rating">
-                            {Array(item.rating).fill.map((_,i)=>
-                            <p><AiOutlineStar /></p>)}
-                        </div>
-                        <button onClick={()=>removeCart(item._id,i)}>
-                            Remove from basket
-                        </button>
+                      <p className="checkoutProduct-title">{item.name}</p>
+                      <p className="checkoutProduct-price">
+                        <small>$</small>
+                        <strong>{item.price}</strong>
+                      </p>
+                      <div className="checkoutProduct-rating">
+                        {Array(item.rating)
+                          .fill()
+                          .map((_, i) => (
+                            <p>
+                              <AiOutlineStar />
+                            </p>
+                          ))}
+                      </div>
+                      <button onClick={() => removeCart(item._id, i)}>
+                        Remove from basket
+                      </button>
                     </div>
-                    
-                </div>
-          )}))} */}
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+        <div className="checkout-right">
+          <Subtotal />
         </div>
       </div>
-      <div className="checkout-right">
-        <Subtotal />
-      </div>
-    </div>
     </>
   );
 }

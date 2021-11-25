@@ -1,6 +1,7 @@
 .checkout{
-    display: flex;
-    flex-direction:row;
+    display: grid;
+    grid-template-columns: 60% 20%;
+    grid-gap: 2rem;
     padding: 20px;
     background-color: white;
     height: max-content;
@@ -12,4 +13,35 @@
 .checkout-title{
     margin-right: 10px;
     padding: 10px;
+}
+.checkoutProduct{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.checkoutProduct-info{
+    padding-left: 20px;
+}
+.checkoutProduct-info button{
+    background-color: #a88734;
+    border: 1px solid;
+    margin-top: 10px;
+    border-color: #a88734 #9c7e31 #846a29;
+    color:#111;
+
+}
+.checkoutProduct-image{
+    object-fit: contain;
+    width: 180px;
+    height: 80px;
+
+
+}
+.checkoutProduct-rating{
+    display: flex;
+}
+.checkoutProduct-title{
+    font-size: 17px;
+    font-weight: 800;
 }
