@@ -5,6 +5,7 @@ import { BsBasket2 } from "react-icons/bs";
 import Header from "../Header";
 import "./style.css";
 import axios from "axios";
+import Notic from "../Notic";
 
 function Description() {
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ function Description() {
 
   return (
     <>
+   
       <Header />
       {product && (
         <div className="main">
@@ -82,7 +84,13 @@ function Description() {
               ))}
             </div>
           </div>
-          <div className="notic"></div>
+          
+          <div className="notic">
+            <Notic id={id}/>
+          </div>
+          <div className="comments">
+            
+          </div>
         </div>
       )}
     </>
