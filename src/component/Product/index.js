@@ -32,10 +32,14 @@ const Product = ({ pro }) => {
       navigate("/signin");
     }
   };
+
+  const discription =(id)=>{
+    navigate(`/discription/${id}`);
+  }
   return (
     <div className="product">
       {pro && (
-        <div className="product-info">
+        <div className="product-info" >
           <p>{pro.name}</p>
           <p className="product-price">
             <small>$</small>
@@ -50,7 +54,7 @@ const Product = ({ pro }) => {
                 </p>
               ))}
           </div>
-          <img src={pro.image[0]} alt="product image" />
+          <img src={pro.image[0]} alt="product image" onClick={() => discription(pro._id)}/>
           <button onClick={() => addToBasket(pro._id)}>
             <BsBasket2 />
           </button>

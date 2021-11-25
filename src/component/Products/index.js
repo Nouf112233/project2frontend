@@ -66,7 +66,7 @@ function Products() {
             {products.length &&
               products.map((pro, i) => (
                 // console.log(pro);
-                <div className="product" key={i} onClick={() => discription(pro._id)}>
+                <div className="product" key={i} >
                   <div className="product-info">
                     <p>{pro.name}</p>
                     <p className="product-price">
@@ -82,7 +82,7 @@ function Products() {
                           </p>
                         ))}
                     </div>
-                    <img src={pro.image[0]} alt="product image" />
+                    <img src={pro.image[0]} alt="product image" onClick={() => discription(pro._id)}/>
                     <button onClick={() => addToBasket(pro._id)}>
                       <BsBasket2 />
                     </button>

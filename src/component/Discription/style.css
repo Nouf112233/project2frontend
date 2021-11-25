@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@200;300&family=Open+Sans:ital,wght@1,300&family=Zen+Antique+Soft&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap');
+.main{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}
+.desc-title{
+    width: 80%;
+    background-color: rgb(185, 184, 184);
+    padding: 10px;
+    padding-right: 50px;
+}
+.desc-title p{
+    color: rgb(65, 63, 63);
+    font-size: 20px;
+    margin-left: 20px;
+    font-family: 'Zen Antique Soft', serif;
+    
+}
+.desc{
+    display: grid;
+    grid-template-columns: 50% 30% 10%;
+    justify-content: space-around;
+    grid-gap: 0.1rem;
+    margin-top: 50px;
+
+}
+.disc-info{
+    align-items: center;
+}
+.disc-info h1{
+color: rgb(134, 102, 21);
+font-family: 'Lora', serif;
+font-size: 25px;
+margin-bottom: 10px;
+}
+.disc-rating{
+    display: flex;
+}
+.disc-rating .star{
+    color: rgb(221, 160, 4);
+}
+.disc-price{
+    
+    margin-left: 80%;
+    margin-bottom: 20px;
+    color: rgb(59, 59, 59);
+}
+.disc-price strong{
+    font-size: 30px;
+}
+.disc-price sup{
+    font-size: 20px;
+}
+.specifications{
+    background-color: rgb(228, 228, 228);
+    padding: 20px;
+}
+.specifications li{
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.main-image button {
+    text-align: center;
+    padding: 10px;
+  background: darkgoldenrod;
+  border: 1px solid;
+  left: 47%;
+  bottom: 10px;
+  border-color: rgb(221, 160, 4) darkgoldenrod rgb(146, 107, 7);
+  color: black;
+  margin-left: 40%;
+  margin-top: 30px;
+
+}
+.main-image img{
+    width: 100%;
+}
+.slider-image{
+    display: flex;
+    flex-direction:column;
+}
+.slider-image img{
+    width: 100%;
+    margin-bottom: 5px;
+}
