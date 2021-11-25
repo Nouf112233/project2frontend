@@ -9,6 +9,7 @@ import "./style.css";
 function Basket() {
   const [basketProducts, setBasketProducts] = useState([]);
   const [user, setUser] = useState(null);
+  const [remove,setRemove]=useState(false);
 
   const productInBasket = []
 
@@ -22,13 +23,8 @@ function Basket() {
       carts.forEach((item, i) => {
         getproduct(item, carts.length , i);
       });
-
     }
-
-
   };
-
-
 
   const getproduct = async (item,length, i) => {
     const product = await axios.get(`http://localhost:5000/product/id/${item}`);
@@ -36,8 +32,6 @@ function Basket() {
     productInBasket.push(product.data)
     if(length - 1 === i) setBasketProducts(productInBasket)
   };
-
-
 
   const removeCart = (id, i) => {
     let email = user.email;
@@ -52,15 +46,14 @@ function Basket() {
     axios.delete(`http://localhost:5000/user`, { email: email, id: id });
     // user.cart.splice(i, 1);
     sessionStorage.setItem("user", JSON.stringify(newUser));
+    setRemove(!remove);
   };
 
-    // useEffect(() => {
-   
-    // }, []);
+
 
   useEffect(() => {
     getBasketProduct();
-  }, []);
+  }, [remove]);
 
   return (
     <>

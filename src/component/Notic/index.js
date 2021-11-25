@@ -5,10 +5,12 @@ import './style.css'
 function Notic(props) {
     const [name,setName]=useState("");
     const [comment,setComment]=useState("");
-    console.log(props);
+    
     const addComment=()=>{
         axios.put("http://localhost:5000/product/not", {id:props.id,Notice:[name,comment]})
+        console.log(comment);
     }
+    
 
     return (
         <div className="notic">

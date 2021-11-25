@@ -40,23 +40,14 @@ function Home() {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a19cccf5529131208bfaf`
     );
-    // console.log(data.data);
 
     setProduct2(data.data);
   };
 
-  //   const getPruduct2ById = async () => {
-  //     const data = await axios.get(
-  //       `http://localhost:5000/product/id/619a1549cf5529131208bfab`
-  //     );
-  //     setProduct2(data.data);
-  //     console.log(product2);
-  //   };
   const getPruduct3ById = async () => {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a1d51cf5529131208bfb3`
     );
-    // console.log(data.data);
 
     setProduct3(data.data);
   };
@@ -64,7 +55,6 @@ function Home() {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a240fcf5529131208bfb9`
     );
-    // console.log(data.data);
 
     setProduct4(data.data);
   };
@@ -72,7 +62,6 @@ function Home() {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a325fcf5529131208bfcb`
     );
-    // console.log(data.data);
 
     setProduct5(data.data);
   };
@@ -80,49 +69,32 @@ function Home() {
     const data = await axios.get(
       `http://localhost:5000/product/id/619a59f2cf5529131208bfed`
     );
-    // console.log(data.data);
 
     setProduct6(data.data);
   };
-  // const addToBasket = (id) => {
-  //   const user = JSON.parse(sessionStorage.getItem("user"));
-  //   if (user) {
-  //     let email = user.email;
-  //     let cart = user.cart;
-  //     cart.push(id);
-  //     let newUser = {
-  //       email: email,
-  //       cart: cart,
-  //     };
-  //     axios.put("http://localhost:5000/user", { email:email, id: id });
-  //     sessionStorage.setItem("user", JSON.stringify(newUser));
-  //   } else {
-  //     navigate("/signin");
-  //   }
-  // };
 
   return (
     <>
-    <Header />
-    <div className="home">
-      {product1 && (
-        <div className="home-container">
-          <img className="home-image" src={image} alt="image" />
-          <div className="home-row">
-            <Product pro={product1} />
-            <Product pro={product2} />
+      <Header />
+      <div className="home">
+        {product1 && (
+          <div className="home-container">
+            <img className="home-image" src={image} alt="image" />
+            <div className="home-row">
+              <Product pro={product1} />
+              <Product pro={product2} />
+            </div>
+            <div className="home-row">
+              <Product pro={product3} />
+              <Product pro={product4} />
+              <Product pro={product5} />
+            </div>
+            <div className="home-row">
+              <Product pro={product6} />
+            </div>
           </div>
-          <div className="home-row">
-            <Product pro={product3} />
-            <Product pro={product4} />
-            <Product pro={product5} />
-          </div>
-          <div className="home-row">
-            <Product pro={product6} />
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { HiDocumentSearch } from "react-icons/hi";
-import { GiBasket } from "react-icons/gi";
+import { BsCart4 } from "react-icons/bs";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import logo from "./logo.PNG";
 import List from "../List";
@@ -60,7 +60,7 @@ function Header() {
           {/* </Link> */}
           {/* <Link to="/basket" > */}
           <div className="header-optionBasket" onClick={goBasket}>
-            <GiBasket />
+            <BsCart4 />
             <span className="header-optionLineTwo header-basketCount">
               0{/* {basket?.length} */}
             </span>

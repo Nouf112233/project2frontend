@@ -2,7 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
-import { BsBasket2 } from "react-icons/bs";
+import { GrLike } from "react-icons/gr";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 import Header from "../Header";
 import "./style.css";
 import axios from "axios";
@@ -12,6 +13,8 @@ function Products() {
   const navigate = useNavigate();
   const { kind } = useParams();
   const [products, setProducts] = useState([]);
+  // const [product,setProduct] =useState(null)
+  // const [like,setLike]=useState(false);
 
   console.log(kind);
 
@@ -41,33 +44,91 @@ function Products() {
         email: email,
         cart: cart,
       };
-      axios.put("http://localhost:5000/user", { email:email, id: id });
+      axios.put("http://localhost:5000/user", { email: email, id: id });
       sessionStorage.setItem("user", JSON.stringify(newUser));
     } else {
       navigate("/signin");
     }
   };
 
-  const discription =(id)=>{
+  const discription = (id) => {
     navigate(`/discription/${id}`);
-  }
+  };
 
   return (
     <>
       <Header />
       <div className="hom">
         <div className="home-container">
-          <img
-            className="homeimage"
-            src="https://i.pinimg.com/236x/17/18/77/1718774035d8f01a42c9d16aa8ccf37d.jpg"
-            alt="image"
-          />
+          {kind == "outdoor trip" && (
+            <img
+              className="homeimage"
+              src="https://i.pinimg.com/474x/74/db/46/74db4646eead8b4b9a679207ccdb0b81.jpg"
+              alt="image"
+            />
+          )}
+          {kind == "Hiking" && (
+            <img
+              className="homeimage"
+              src="https://i.pinimg.com/474x/ff/1c/af/ff1cafa228e31287fe08fb841866f105.jpg"
+              alt="image"
+            />
+          )}
+          {kind == "Fishing and diving" && (
+            <img
+              className="homeimage"
+              src="https://i.pinimg.com/474x/da/22/b1/da22b1a3c5df965bd691b070a55bb93c.jpg"
+              alt="image"
+            />
+          )}
+          {kind == "Light and guides" && (
+            <img
+              className="homeimage"
+              src="https://i.pinimg.com/474x/99/1f/51/991f513991a6b55083e9de7e188f195d.jpg"
+              alt="image"
+            />
+          )}
+          {kind == "Weapsons and Ammunitition" && (
+            <img
+              className="homeimage"
+              src="https://i.pinimg.com/474x/77/d1/87/77d187de127766f3534ab2ae0476bb5c.jpg"
+              alt="image"
+            />
+          )}
+          {kind == "Knives" && (
+            <img
+              className="homeimage"
+              src="https://i.pinimg.com/474x/6c/6e/b1/6c6eb1680bc4c68788602896e70c2f63.jpg"
+              alt="image"
+            />
+          )}
+          {kind == "Camping gear" && (
+            <img
+              className="homeimage"
+              src="https://i.pinimg.com/474x/74/db/46/74db4646eead8b4b9a679207ccdb0b81.jpg"
+              alt="image"
+            />
+          )}
+          {kind == "Jackets" && (
+            <img
+              className="homeimage"
+              src="https://i.pinimg.com/474x/69/4d/3c/694d3c4e4d57ba04f0dde994ddf213d0.jpg"
+              alt="image"
+            />
+          )}
+          {kind == "Foot wear" && (
+            <img
+              className="homeimage"
+              src="https://i.pinimg.com/474x/28/46/6a/28466ab0348b65410594fb6d1a704d96.jpg"
+              alt="image"
+            />
+          )}
           <div className="products">
             {products.length &&
               products.map((pro, i) => (
                 // console.log(pro);
-                <div className="product" key={i} >
-                  <div className="product-info">
+                <div className="product" key={pro._id}>
+                  {/* <div className="product-info">
                     <p>{pro.name}</p>
                     <p className="product-price">
                       <small>$</small>
@@ -82,11 +143,21 @@ function Products() {
                           </p>
                         ))}
                     </div>
-                    <img src={pro.image[0]} alt="product image" onClick={() => discription(pro._id)}/>
-                    <button onClick={() => addToBasket(pro._id)}>
-                      <BsBasket2 />
-                    </button>
-                  </div>
+                    <img
+                      src={pro.image[0]}
+                      alt="product image"
+                      onClick={() => discription(pro._id)}
+                    />
+                    <GrLike
+                      onClick={() => addlike(pro._id)}
+                      className="like-button"
+                    />
+                    <MdOutlineAddShoppingCart
+                      onClick={() => addToBasket(pro._id)}
+                      className="add-button"
+                    />
+                  </div> */}
+                  <Product pro={pro} />
                 </div>
               ))}
           </div>

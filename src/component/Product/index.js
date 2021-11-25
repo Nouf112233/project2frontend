@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
-import { BsBasket2 } from "react-icons/bs";
+import { GrLike } from "react-icons/gr";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 import axios from "axios";
 import "./style.css";
 
 const Product = ({ pro }) => {
   const navigate = useNavigate();
-  // const [prod,setProd]=useState(null);
+  const [product,setProduct] =useState(pro)
+  const [like,setLike]=useState(false);
 
-  // useEffect(() => {
-  //   setProd(pro);
-  //   // console.log(pro);
+  
+  useEffect(() => {
+    // const prod = axios.get(
+    //   `http://localhost:5000/product/id/${product._id}`
+    // );
+    // console.log(prod.data);
+    // setProduct(prod.data);
 
-  // }, []);
-  console.log("pro", pro);
+   }, [like]);
+  // console.log("pro", pro);
 
   const addToBasket = (id) => {
     const user = JSON.parse(sessionStorage.getItem("user"));
@@ -36,17 +42,26 @@ const Product = ({ pro }) => {
   const discription =(id)=>{
     navigate(`/discription/${id}`);
   }
+
+  const addlike =(id)=>{
+   let lik=product.rating;
+   lik++;
+   setLike(!like);
+   setProduct({_id:pro._id,kind:pro.kind,name:pro.name,specifications:pro.specifications,Notice:pro.Notice,price:pro.price,rating:lik,newe:pro.newe,image:pro.image,discound:pro.discound})
+   axios.put("http://localhost:5000/product/like", { rating:lik, id: id });
+  }
+
   return (
     <div className="product">
-      {pro && (
+      {product && (
         <div className="product-info" >
-          <p>{pro.name}</p>
+          <p>{product.name}</p>
           <p className="product-price">
             <small>$</small>
-            <strong>{pro.price}</strong>
+            <strong>{product.price}</strong>
           </p>
           <div className="product-rating">
-            {Array(pro.rating)
+            {Array(product.rating)
               .fill()
               .map((_, i) => (
                 <p key={i}>
@@ -54,10 +69,11 @@ const Product = ({ pro }) => {
                 </p>
               ))}
           </div>
-          <img src={pro.image[0]} alt="product image" onClick={() => discription(pro._id)}/>
-          <button onClick={() => addToBasket(pro._id)}>
-            <BsBasket2 />
-          </button>
+          <img src={product.image[0]} alt="product image" onClick={() => discription(product._id)}/>
+          {/* <button onClick={() => addToBasket(pro._id)}> */}
+            <GrLike onClick={() => addlike(product._id)} className="like-button"/>
+            <MdOutlineAddShoppingCart onClick={() => addToBasket(product._id)} className="add-button"/>
+          {/* </button> */}
         </div>
       )}
     </div>

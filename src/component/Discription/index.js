@@ -6,6 +6,7 @@ import Header from "../Header";
 import "./style.css";
 import axios from "axios";
 import Notic from "../Notic";
+import Comments from "../Comments";
 
 function Description() {
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ function Description() {
    
       <Header />
       {product && (
+        
         <div className="main">
           <div className="desc-title">
             <p>{product.kind}</p>
@@ -88,8 +90,9 @@ function Description() {
           <div className="notic">
             <Notic id={id}/>
           </div>
+         
           <div className="comments">
-            
+            <Comments notic={product.Notice} />
           </div>
         </div>
       )}
