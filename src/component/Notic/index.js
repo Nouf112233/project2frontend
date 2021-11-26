@@ -19,13 +19,19 @@ function Notic(props) {
           <h5>name</h5>
           <input
             type="text"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) =>{
+              e.preventDefault();
+               setName(e.target.value);
+              }}
             required
           />
           <h5>comment</h5>
           <input
             type="text"
-            onChange={(e) => setComment(e.target.value)}
+            onChange={(e) =>{
+              e.preventDefault();
+              setComment(e.target.value);
+            } }
             required
           />
           <button className="notic-button" onClick={addComment}>Send</button>

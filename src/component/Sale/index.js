@@ -1,9 +1,8 @@
 import React from "react";
 import Header from "../Header";
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { AiOutlineStar } from "react-icons/ai";
-import { BsBasket2 } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
+import Product from "../Product";
 import axios from "axios";
 import "./style.css";
 
@@ -35,28 +34,9 @@ function Sale() {
           <div className="sale-products">
             {saleProducts.length &&
               saleProducts.map((pro, i) => (
-                // console.log(pro);
+              
                 <div className="product" key={i}>
-                  <div className="product-info">
-                    <p>{pro.name}</p>
-                    <p className="product-price">
-                      <small>$</small>
-                      <strong>{pro.price}</strong>
-                    </p>
-                    <div className="product-rating">
-                      {Array(pro.rating)
-                        .fill()
-                        .map((_, i) => (
-                          <p key={i}>
-                            <AiOutlineStar />
-                          </p>
-                        ))}
-                    </div>
-                    <img src={pro.image[0]} alt="product image" />
-                    <button onClick={() => addToBasket(pro._id)}>
-                      <BsBasket2 />
-                    </button>
-                  </div>
+                  <Product pro={pro} />
                 </div>
               ))}
           </div>

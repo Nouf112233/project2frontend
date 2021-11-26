@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { AiOutlineStar } from "react-icons/ai";
-import { GrLike } from "react-icons/gr";
-import { MdOutlineAddShoppingCart } from "react-icons/md";
+// import { AiOutlineStar } from "react-icons/ai";
+// import { GrLike } from "react-icons/gr";
+// import { MdOutlineAddShoppingCart } from "react-icons/md";
 import Header from "../Header";
 import "./style.css";
 import axios from "axios";
@@ -34,26 +34,26 @@ function Products() {
     console.log(product.data);
     setProducts(product.data);
   };
-  const addToBasket = (id) => {
-    const user = JSON.parse(sessionStorage.getItem("user"));
-    if (user) {
-      let email = user.email;
-      let cart = user.cart;
-      cart.push(id);
-      let newUser = {
-        email: email,
-        cart: cart,
-      };
-      axios.put("http://localhost:5000/user", { email: email, id: id });
-      sessionStorage.setItem("user", JSON.stringify(newUser));
-    } else {
-      navigate("/signin");
-    }
-  };
+  // const addToBasket = (id) => {
+  //   const user = JSON.parse(sessionStorage.getItem("user"));
+  //   if (user) {
+  //     let email = user.email;
+  //     let cart = user.cart;
+  //     cart.push(id);
+  //     let newUser = {
+  //       email: email,
+  //       cart: cart,
+  //     };
+  //     axios.put("http://localhost:5000/user", { email: email, id: id });
+  //     sessionStorage.setItem("user", JSON.stringify(newUser));
+  //   } else {
+  //     navigate("/signin");
+  //   }
+  // };
 
-  const discription = (id) => {
-    navigate(`/discription/${id}`);
-  };
+  // const discription = (id) => {
+  //   navigate(`/discription/${id}`);
+  // };
 
   return (
     <>

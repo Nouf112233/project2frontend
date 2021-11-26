@@ -54,13 +54,19 @@ function Signin() {
           <h5>E-mail</h5>
           <input
             type="text"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) =>{ 
+              e.preventDefault();
+              setEmail(e.target.value);
+            }}
             required
           />
           <h5>password</h5>
           <input
             type="password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              e.preventDefault();
+              setPassword(e.target.value);
+            }}
             required
           />
           <button className="login-signInButton" onClick={loginuser}>signin</button>

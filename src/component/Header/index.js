@@ -16,14 +16,15 @@ function Header() {
     navigate(`/`);
   };
 
-  const getSearched = async (e) => {
-    if (e.key === "Enter") {
-      let myTerm = e.target.value;
-      const response = await axios.get(
-        `http://localhost:5500/audiobooks/search/${myTerm}`
-      );
-      // setSearch(response.data.results);
-    }
+  const getSearched=(e) => {
+    e.preventDefault();
+    navigate(`/search/${e.target.value}`);
+    // let myTerm = e.target.value;
+    //   const response = await axios.get(
+    //     `http://localhost:5500/audiobooks/search/${myTerm}`
+    //   );
+    //   setAudios(response.data.results);
+
   };
   
   const getUserItem=()=>{
@@ -60,7 +61,7 @@ function Header() {
           <img className="header-logo" src={logo} alt="logo" />
         </Link>
         <div className="header-search">
-          <input className="header-searchInput" type="text" onKeyDown={getSearched}
+          <input className="header-searchInput" type="text" onKeyUp={getSearched}
         autoFocus
         id="search"
         placeholder="search"
@@ -68,32 +69,24 @@ function Header() {
           <HiDocumentSearch className="header-searchIcon" />
         </div>
         <div className="header-nav">
-          {/* <Link to="/login" > */}
           <div className="header-option" onClick={goSignin}>
             <span className="header-optionLineOne">Hello</span>
             <span className="header-optionLineTwo">signIn</span>
           </div>
-          {/* </Link> */}
-          {/* <Link to="/order" > */}
           <div className="header-option" onClick={goSale} >
             <span className="header-optionLineOne">osteal</span>
             <span className="header-optionLineTwo">& Sale</span>
           </div>
-          {/* </Link> */}
-          {/* <Link to="/prime" > */}
           <div className="header-option" onClick={goNew}>
             <span className="header-optionLineOne">Our</span>
             <span className="header-optionLineTwo">& New</span>
           </div>
-          {/* </Link> */}
-          {/* <Link to="/basket" > */}
           <div className="header-optionBasket" onClick={goBasket}>
             <BsCart4 />
             <span className="header-optionLineTwo header-basketCount">
               {item}
             </span>
           </div>
-          {/* </Link> */}
         </div>
         <List />
       </div>

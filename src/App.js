@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-// import {Router,Route} from 'react-router-dom'
 import "./App.css";
 import Header from "./component/Header";
 import Home from "./component/Home";
@@ -11,6 +10,8 @@ import Register from "./component/Register";
 import New from "./component/New";
 import Sale from "./component/Sale";
 import Description from "./component/Discription";
+import Search from "./component/Search";
+
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
         <Route path="/new" element={<New />} />
         <Route path="/sale" element={<Sale />} />
         <Route path="/discription/:id" element={<Description />} />
+        <Route path="/search/:name" element={<Search />} />
+        <Route path="/search" element={<Search />} />
         
       </Routes>
     </>
