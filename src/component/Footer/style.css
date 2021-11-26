@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&display=swap');
+.footer{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: 50px;
+
+}
+.club{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    width:100%;
+    margin-bottom: 30px;
+
+}
+.footer-info{
+    display: grid;
+    grid-template-columns: 25% 60%;
+    justify-content: space-evenly;
+    background-color: rgb(77, 75, 75);
+    width: 100%;
+  
+}
+.footer-logo{
+    width: 100%;
+    
+
+}
+.accounts{
+    margin: auto auto;
+    width: 100%;
+}
+.title-account{
+    color: white;
+    margin-bottom: 20px;
+    font-family: 'M PLUS 1 Code', sans-serif;
+}
+.logo-account{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.acc{
+    font-size: 40px;
+}
+.tw{
+    color:rgb(141, 168, 250)
+}
+.yo{
+    color:rgb(250, 150, 141)
+}
+.ma{
+    color: seashell;
+}
+.sn{
+    color: rgb(243, 243, 128);
+}
+.clup-logo{
+    font-size: 150px;
+    color: rgb(77, 75, 75);
+}
+.hiking h6{
+    font-size:20px ;
+    color: rgb(77, 75, 75);
+}

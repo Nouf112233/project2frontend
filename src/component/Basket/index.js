@@ -5,6 +5,7 @@ import axios from "axios";
 import { AiOutlineStar } from "react-icons/ai";
 import Subtotal from "../Subtotal";
 import "./style.css";
+import Footer from "../Footer";
 
 function Basket() {
   const [basketProducts, setBasketProducts] = useState([]);
@@ -117,6 +118,7 @@ function Basket() {
           <Subtotal total={total} count={count}/>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

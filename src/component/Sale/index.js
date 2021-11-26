@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Product from "../Product";
 import axios from "axios";
 import "./style.css";
+import Footer from "../Footer";
 
 function Sale() {
   const navigate = useNavigate();
@@ -34,7 +35,6 @@ function Sale() {
           <div className="sale-products">
             {saleProducts.length &&
               saleProducts.map((pro, i) => (
-              
                 <div className="product" key={i}>
                   <Product pro={pro} />
                 </div>
@@ -42,6 +42,7 @@ function Sale() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

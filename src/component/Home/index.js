@@ -7,6 +7,7 @@ import Image from "./camp1.png";
 // import Slider from "../Slider";
 
 import "./style.css";
+import Footer from "../Footer";
 
 function Home() {
   const [image] = useState(Image);
@@ -101,6 +102,7 @@ function Home() {
         </div>
       )}
     </div>
+    <Footer />
     </>
   );
 }

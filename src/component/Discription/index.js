@@ -8,6 +8,7 @@ import "./style.css";
 import axios from "axios";
 import Notic from "../Notic";
 import Comments from "../Comments";
+import Footer from "../Footer";
 
 function Description() {
   const navigate = useNavigate();
@@ -110,6 +111,7 @@ function Description() {
           </div>
         </div>
       )}
+      <Footer />
     </>
   );
 }

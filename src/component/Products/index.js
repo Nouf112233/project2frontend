@@ -8,6 +8,7 @@ import Header from "../Header";
 import "./style.css";
 import axios from "axios";
 import Product from "../Product";
+import Footer from "../Footer";
 
 function Products() {
   const navigate = useNavigate();
@@ -134,6 +135,7 @@ function Products() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

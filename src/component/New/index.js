@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Product from "../Product";
 import axios from "axios";
 import "./style.css";
+import Footer from "../Footer";
 
 function New() {
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ function New() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
