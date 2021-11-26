@@ -2,7 +2,7 @@ import React, { useEffect,useState } from "react";
 import { HiDocumentSearch } from "react-icons/hi";
 import { BsCart4 } from "react-icons/bs";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import logo from "./logo.PNG";
+import logo from "./logo1.PNG";
 import List from "../List";
 import axios from "axios";
 import "./style.css";
@@ -10,6 +10,7 @@ import "./style.css";
 function Header() {
   const [item,setItem]=useState(0);
   const navigate = useNavigate();
+  const [itemInbaket,setItemInbasket]=useState(false);
 
   // const [{basket},{user},dispatch] from useStateValue();
   const goHome = () => {
@@ -33,6 +34,8 @@ function Header() {
     let carts=user.cart;
     let numOfCarts=carts.length;
     setItem(numOfCarts);
+    setItemInbasket(!itemInbaket);
+
     }
   }
 
@@ -50,6 +53,10 @@ function Header() {
   const goNew = () => {
     navigate(`/new`);
   };
+
+  // useEffect(()=>{
+   
+  // },[itemInbaket])
 
   useEffect(()=>{
     getUserItem();

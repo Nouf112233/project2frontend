@@ -7,28 +7,47 @@ import {FaTwitter} from 'react-icons/fa';
 import {ImYoutube2} from 'react-icons/im';
 import {MdOutgoingMail} from 'react-icons/md';
 import {BsSnapchat} from 'react-icons/bs'
-import logo from "./logo.PNG";
+import logo from "./logo1.PNG";
 import './style.css'
+import { useNavigate } from 'react-router';
 
 function Footer() {
+    const navigate = useNavigate();
+
+    const goHiking=()=>{
+        navigate(`/club/Hiking`);
+    }
+
+    const goWild=()=>{
+        navigate(`/club/wild`);
+    }
+
+    const goSea=()=>{
+        navigate(`/club/sea`);
+    }
+
+    const goHunt=()=>{
+        navigate(`/club/hunt`);
+    }
+
     return (
         <div className="footer">
             <div className="club">
-                <div className="hiking">
+                <div className="hiking" onClick={goHiking}>
                 <GiHiking  className="clup-logo"/>
                 <h6>Hiking Club</h6>
                 </div>
-                <div className="hiking">
+                <div className="hiking" onClick={goWild}>
                 <GiForestCamp className="clup-logo" />
                 <h6>Wilderness Club</h6>
                 </div>
-                <div className="hiking">
+                <div className="hiking" onClick={goSea}>
                 <GiCargoShip className="clup-logo"/>
-                <h6>Cruise Club</h6>
+                <h6>Sea tripess Club</h6>
                 </div>
-                <div className="hiking">
+                <div className="hiking" onClick={goHunt}>
                 <GiAntiAircraftGun className="clup-logo"/>
-                <h6>أunting Club</h6>
+                <h6>Hunting Club</h6>
                 </div>
                 
                 

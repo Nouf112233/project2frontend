@@ -11,6 +11,8 @@ import New from "./component/New";
 import Sale from "./component/Sale";
 import Description from "./component/Discription";
 import Search from "./component/Search";
+import Club from "./component/Club";
+
 
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
         <Route path="/discription/:id" element={<Description />} />
         <Route path="/search/:name" element={<Search />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/club/:kind" element={<Club />} />
         
       </Routes>
     </>

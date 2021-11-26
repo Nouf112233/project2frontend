@@ -17,6 +17,7 @@
   width: 100%;
   object-fit: contain;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 .product-info {
   width: 80%;
@@ -55,6 +56,7 @@
   font-size: 25px;
   right: 10px;
   color: darkgoldenrod;
+  cursor: pointer;
 }
 .product-info .like-button {
 
@@ -62,4 +64,14 @@
   font-size: 25px;
   left: 10px;
   color: darkgoldenrod;
+  cursor: pointer;
+}
+.like-button:hover{
+  transform: scale(1.1);
+}
+.add-button:hover{
+  transform: scale(1.1);
+}
+.product-info img:hover{
+  transform: scale(1.1);
 }

@@ -10,60 +10,61 @@ import Footer from "../Footer";
 function Basket() {
   const [basketProducts, setBasketProducts] = useState([]);
   const [user, setUser] = useState(null);
-  const [remove,setRemove]=useState(false);
-  const [total,setTotal]=useState(0);
-  const [count,setCount]=useState(0);
+  const [remove, setRemove] = useState(false);
+  const [total, setTotal] = useState(0);
+  const [count, setCount] = useState(0);
 
-  let productInBasket = []
-  let inTotal=0;
-  let inCount=0;
+  let productInBasket = [];
+  let inTotal = 0;
+  let inCount = 0;
 
   const getBasketProduct = async () => {
     let user = JSON.parse(sessionStorage.getItem("user"));
     // console.log("user", user);
     if (user) {
       let carts = user.cart;
-    //   console.log("carts", carts);
+      //   console.log("carts", carts);
       setUser(user);
       carts.forEach((item, i) => {
-        getproduct(item, carts.length , i);
+        getproduct(item, carts.length, i);
       });
     }
   };
 
-  const getproduct = async (item,length, i) => {
+  const getproduct = async (item, length, i) => {
     const product = await axios.get(`http://localhost:5000/product/id/${item}`);
     // console.log("product", product.data);
-    productInBasket.push(product.data)
-    inTotal+=product.data.price;
+    productInBasket.push(product.data);
+    inTotal += product.data.price;
     inCount++;
-    if(length - 1 === i){
+    if (length - 1 === i) {
       setBasketProducts(productInBasket);
       setTotal(inTotal);
       setCount(inCount);
-    } 
+      productInBasket.splice(0, productInBasket - 1);
+      inTotal = 0;
+      inCount = 0;
+    }
   };
 
   const removeCart = (id, i) => {
     let email = user.email;
     let cart = user.cart;
     cart.splice(i, 1);
-      let newUser = {
-        email: email,
-        cart: cart,
-      };
-      setUser(newUser);
+    let newUser = {
+      email: email,
+      cart: cart,
+    };
+    setUser(newUser);
     // console.log(email);
     axios.delete(`http://localhost:5000/user`, { email: email, id: id });
     // user.cart.splice(i, 1);
     sessionStorage.setItem("user", JSON.stringify(newUser));
     setRemove(!remove);
   };
-  useEffect(() => {
-    
-  }, [remove]);
+  // useEffect(() => {
 
-
+  // }, [remove]);
 
   useEffect(() => {
     getBasketProduct();
@@ -71,7 +72,7 @@ function Basket() {
 
   return (
     <>
-    {console.log("sss",basketProducts)}
+      {console.log("sss", basketProducts)}
       <Header />
       <div className="checkout">
         <div className="checkout-left">
@@ -101,7 +102,7 @@ function Basket() {
                           .fill()
                           .map((_, i) => (
                             <p>
-                              <AiOutlineStar className="star"/>
+                              <AiOutlineStar className="star" />
                             </p>
                           ))}
                       </div>
@@ -115,7 +116,7 @@ function Basket() {
           </div>
         </div>
         <div className="checkout-right">
-          <Subtotal total={total} count={count}/>
+          <Subtotal total={total} count={count} />
         </div>
       </div>
       <Footer />

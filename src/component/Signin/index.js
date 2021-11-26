@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import logo from "./logo.PNG";
+import logo from "./logo2.PNG";
 import "./style.css";
 
 function Signin() {
