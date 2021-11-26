@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router";
 import "./App.css";
-import Header from "./component/Header";
 import Home from "./component/Home";
 import Basket from "./component/Basket";
 import Products from "./component/Products";
@@ -16,6 +15,8 @@ import Club from "./component/Club";
 
 
 function App() {
+
+
   return (
     <>
       {/* <Header /> */}

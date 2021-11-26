@@ -41,7 +41,6 @@ function Basket() {
       setBasketProducts(productInBasket);
       setTotal(inTotal);
       setCount(inCount);
-      productInBasket.splice(0, productInBasket - 1);
       inTotal = 0;
       inCount = 0;
     }
@@ -50,7 +49,15 @@ function Basket() {
   const removeCart = (id, i) => {
     let email = user.email;
     let cart = user.cart;
+    let x=basketProducts[i].price;
+    console.log("x",x);
+    setTotal(total-x)
     cart.splice(i, 1);
+    productInBasket.push(...basketProducts);
+    productInBasket.splice(i,1);
+    setBasketProducts(productInBasket);
+    setCount(count-1);
+    
     let newUser = {
       email: email,
       cart: cart,
@@ -62,17 +69,17 @@ function Basket() {
     sessionStorage.setItem("user", JSON.stringify(newUser));
     setRemove(!remove);
   };
-  // useEffect(() => {
+  useEffect(() => {
 
-  // }, [remove]);
+  }, [remove]);
 
   useEffect(() => {
     getBasketProduct();
-  }, [remove]);
+  }, []);
 
   return (
     <>
-      {console.log("sss", basketProducts)}
+    
       <Header />
       <div className="checkout">
         <div className="checkout-left">
@@ -85,6 +92,7 @@ function Basket() {
             <h2 className="checkout-title">Your Shopping Basket</h2>
             {basketProducts.length &&
               basketProducts.map((item, i) => {
+                {console.log("item",item)}
                 return (
                   <div className="checkoutProduct">
                     <img

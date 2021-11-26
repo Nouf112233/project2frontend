@@ -7,15 +7,15 @@ import "./style.css";
 
 function Club() {
   const { kind } = useParams();
-  const [title, setTitle] = useState([]);
+//   const [title, setTitle] = useState([]);
 
-  const getTitle = async () => {
-    const tit = await axios.get("http://localhost:5000/club", { kind: kind });
+  const getclubTitle = async () => {
+    const tit = await axios.get("http://localhost:5000/club", {kind:kind });
     console.log("kind is", kind);
     console.log("title of club", tit);
   };
   useEffect(() => {
-    getTitle();
+    getclubTitle();
   }, []);
 
   return (

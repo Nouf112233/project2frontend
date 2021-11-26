@@ -7,7 +7,7 @@ import {FaTwitter} from 'react-icons/fa';
 import {ImYoutube2} from 'react-icons/im';
 import {MdOutgoingMail} from 'react-icons/md';
 import {BsSnapchat} from 'react-icons/bs'
-import logo from "./logo1.PNG";
+import logo from "./logo2.PNG";
 import './style.css'
 import { useNavigate } from 'react-router';
 

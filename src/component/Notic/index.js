@@ -7,6 +7,7 @@ function Notic(props) {
     const [comment,setComment]=useState("");
     
     const addComment=()=>{
+      
         axios.put("http://localhost:5000/product/not", {id:props.id,Notice:[name,comment]})
         console.log(comment);
     }

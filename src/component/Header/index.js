@@ -7,12 +7,12 @@ import List from "../List";
 import axios from "axios";
 import "./style.css";
 
-function Header() {
+function Header(props) {
   const [item,setItem]=useState(0);
   const navigate = useNavigate();
   const [itemInbaket,setItemInbasket]=useState(false);
 
-  // const [{basket},{user},dispatch] from useStateValue();
+  
   const goHome = () => {
     navigate(`/`);
   };
@@ -20,12 +20,7 @@ function Header() {
   const getSearched=(e) => {
     e.preventDefault();
     navigate(`/search/${e.target.value}`);
-    // let myTerm = e.target.value;
-    //   const response = await axios.get(
-    //     `http://localhost:5500/audiobooks/search/${myTerm}`
-    //   );
-    //   setAudios(response.data.results);
-
+ 
   };
   
   const getUserItem=()=>{
@@ -54,9 +49,9 @@ function Header() {
     navigate(`/new`);
   };
 
-  // useEffect(()=>{
+  useEffect(()=>{
    
-  // },[itemInbaket])
+  },[itemInbaket])
 
   useEffect(()=>{
     getUserItem();

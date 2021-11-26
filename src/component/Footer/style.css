@@ -22,7 +22,7 @@
     display: grid;
     grid-template-columns: 25% 60%;
     justify-content: space-evenly;
-    background-color: rgb(77, 75, 75);
+    background-color: rgb(255, 255, 255);
     width: 100%;
   
 }
@@ -36,7 +36,7 @@
     width: 100%;
 }
 .title-account{
-    color: white;
+    color: rgb(56, 56, 56);
     margin-bottom: 20px;
     font-family: 'M PLUS 1 Code', sans-serif;
 }
@@ -56,7 +56,8 @@
     color:rgb(250, 150, 141)
 }
 .ma{
-    color: seashell;
+    color: rgb(73, 73, 72);
+  
 }
 .sn{
     color: rgb(243, 243, 128);

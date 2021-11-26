@@ -23,6 +23,7 @@ const Product = ({ pro }) => {
       let email = user.email;
       let cart = user.cart;
       cart.push(id);
+
       let newUser = {
         email: email,
         cart: cart,
