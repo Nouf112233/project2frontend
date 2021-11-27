@@ -13,6 +13,7 @@ function Basket() {
   const [remove, setRemove] = useState(false);
   const [total, setTotal] = useState(0);
   const [count, setCount] = useState(0);
+  const [a, setA] = useState(false);
 
   let productInBasket = [];
   let inTotal = 0;
@@ -22,13 +23,17 @@ function Basket() {
     let user = JSON.parse(sessionStorage.getItem("user"));
     console.log("user", user);
     if (user) {
-      let carts = user.cart;
+      let carts= user.cart;
+      if(carts.length==0){
+        setBasketProducts([]);
+        setCount(0);
+        setTotal(0);
+      }
       setUser(user);
       carts.forEach((item, i) => {
-        
         getproduct(item, carts.length, i);
       });
-     
+
       // setBasketProducts(productInBasket);
       // setTotal(inTotal);
       // setCount(inCount);
@@ -42,49 +47,40 @@ function Basket() {
   const getproduct = async (item, length, i) => {
     const product = await axios.get(`http://localhost:5000/product/id/${item}`);
     productInBasket.push(product.data);
-    console.log("productInBasket",productInBasket);
+    console.log("productInBasket", productInBasket);
     inTotal += product.data.price;
     inCount++;
-    if (length - 1 === i) {
+    setA(!a);
+    if (product!=undefined && length - 1 === i) {
       // console.log("productInBasket", productInBasket);
       setBasketProducts(productInBasket);
       setTotal(inTotal);
       setCount(inCount);
-    //   productInBasket.splice(0, length);
-    //   inTotal = 0;
-    //   inCount = 0;
+    //   //   productInBasket.splice(0, length);
+    //   //   inTotal = 0;
+    //   //   inCount = 0;
+      setA(!a);
     }
   };
 
   const removeCart = (id, i) => {
     let email = user.email;
     let cart = user.cart;
-    // let x=basketProducts[i].price;
-    // productInBasket.splice(i,1);
-    // inTotal-=x;
-    // inCount--;
-    // console.log("x",x);
-    // setTotal(inTotal);
-    // setCount(inCount);
-    cart.splice(i, 1);
-    // setBasketProducts(productInBasket);
 
+    cart.splice(i, 1);
     let newUser = {
       email: email,
       cart: cart,
     };
-
+    setRemove(!remove);
     setUser(newUser);
     axios.delete(`http://localhost:5000/user`, { email: email, id: id });
-
     sessionStorage.setItem("user", JSON.stringify(newUser));
-    
-    setRemove(!remove);
   };
 
-  // useEffect(() => {
-
-  // }, [remove]);
+  useEffect(() => {
+  
+  }, [a]);
 
   useEffect(() => {
     getBasketProduct();
