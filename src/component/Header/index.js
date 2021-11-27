@@ -7,10 +7,22 @@ import List from "../List";
 import axios from "axios";
 import "./style.css";
 
-function Header(props) {
-  const [item,setItem]=useState(0);
+function Header() {
+ 
   const navigate = useNavigate();
-  const [itemInbaket,setItemInbasket]=useState(false);
+  // const [item,setItem]=useState(0);
+  // const [itemInbaket,setItemInbasket]=useState(false);
+
+  // const getUserItem=()=>{
+  //   let user = JSON.parse(sessionStorage.getItem("user"));
+  //   if(user){
+  //   let carts=user.cart;
+  //   let numOfCarts=carts.length;
+  //   setItem(numOfCarts);
+  //   setItemInbasket(!itemInbaket);
+
+  //   }
+  // }
 
   
   const goHome = () => {
@@ -23,16 +35,7 @@ function Header(props) {
  
   };
   
-  const getUserItem=()=>{
-    let user = JSON.parse(sessionStorage.getItem("user"));
-    if(user){
-    let carts=user.cart;
-    let numOfCarts=carts.length;
-    setItem(numOfCarts);
-    setItemInbasket(!itemInbaket);
-
-    }
-  }
+  
 
   const goBasket = () => {
     navigate(`/basket`);
@@ -49,13 +52,13 @@ function Header(props) {
     navigate(`/new`);
   };
 
-  useEffect(()=>{
+  // useEffect(()=>{
    
-  },[itemInbaket])
+  // },[itemInbaket])
 
-  useEffect(()=>{
-    getUserItem();
-  },[])
+  // useEffect(()=>{
+  //   getUserItem();
+  // },[])
   return (
     <>
       <div className="header">
@@ -84,10 +87,10 @@ function Header(props) {
             <span className="header-optionLineTwo">& New</span>
           </div>
           <div className="header-optionBasket" onClick={goBasket}>
-            <BsCart4 />
-            <span className="header-optionLineTwo header-basketCount">
+            <BsCart4 className="iconBasket"/>
+            {/* <span className="header-optionLineTwo header-basketCount">
               {item}
-            </span>
+            </span> */}
           </div>
         </div>
         <List />

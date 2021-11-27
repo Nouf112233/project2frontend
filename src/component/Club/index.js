@@ -9,10 +9,10 @@ function Club() {
   const { kind } = useParams();
 //   const [title, setTitle] = useState([]);
 
-  const getclubTitle = async () => {
-    const tit = await axios.get("http://localhost:5000/club", {kind:kind });
+  const getclubTitle =async() => {
+     const tit= await axios.get("http://localhost:5000/club", {kind:"Hiking"});
     console.log("kind is", kind);
-    console.log("title of club", tit);
+    console.log("title of club", tit.data);
   };
   useEffect(() => {
     getclubTitle();

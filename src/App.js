@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      {/* <Header /> */}
+
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/basket" element={<Basket />} />

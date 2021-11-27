@@ -6,7 +6,9 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 import axios from "axios";
 import "./style.css";
 
-const Product = ({ pro }) => {
+const Product = ({pro}) => {
+
+
   const navigate = useNavigate();
   const [product,setProduct] =useState(pro)
   const [like,setLike]=useState(false);
@@ -15,6 +17,7 @@ const Product = ({ pro }) => {
   useEffect(() => {
    
    }, [like]);
+  
   
 
   const addToBasket = (id) => {

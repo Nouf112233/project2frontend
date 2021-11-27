@@ -19,6 +19,29 @@ function Home() {
   const [product5, setProduct5] = useState(null);
   const [product6, setProduct6] = useState(null);
 
+
+
+  const addToBasket = (id) => {
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    if (user) {
+      let email = user.email;
+      let cart = user.cart;
+      cart.push(id);
+
+      let newUser = {
+        email: email,
+        cart: cart,
+      };
+      axios.put("http://localhost:5000/user", { email:email, id: id });
+      sessionStorage.setItem("user", JSON.stringify(newUser));
+ 
+    } else {
+      navigate("/signin");
+    }
+  };
+
+
+
   useEffect(() => {
     getPruduct1ById();
     getPruduct2ById();
@@ -26,7 +49,12 @@ function Home() {
     getPruduct4ById();
     getPruduct5ById();
     getPruduct6ById();
+    // getUserItem();
   }, []);
+
+  
+
+
 
   const getPruduct1ById = async () => {
     const data = await axios.get(
@@ -82,22 +110,22 @@ function Home() {
 
   return (
     <>
-    <Header />
+    <Header  />
     <div className="home">
       {product1 && (
         <div className="home-container">
           <img className="home-image" src={image} alt="image" />
           <div className="home-row">
-            <Product pro={product1} />
-            <Product pro={product2} />
+            <Product pro={product1} addToBasket={addToBasket}/>
+            <Product pro={product2} addToBasket={addToBasket}/>
           </div>
           <div className="home-row">
-            <Product pro={product3} />
-            <Product pro={product4} />
-            <Product pro={product5} />
+            <Product pro={product3} addToBasket={addToBasket}/>
+            <Product pro={product4} addToBasket={addToBasket}/>
+            <Product pro={product5} addToBasket={addToBasket}/>
           </div>
           <div className="home-row">
-            <Product pro={product6} />
+            <Product pro={product6} addToBasket={addToBasket}/>
           </div>
         </div>
       )}
