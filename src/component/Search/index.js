@@ -14,7 +14,7 @@ function Search() {
   let productInSearch = [];
 
   const getSearched = async () => {
-    const search = await axios.get("http://localhost:5000/product/search", {
+    const search = await axios.get("https://project2-3brood.herokuapp.com/product/search", {
       name: name,
     });
     search.data.forEach((element) => {

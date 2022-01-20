@@ -10,7 +10,7 @@ function Club() {
 //   const [title, setTitle] = useState([]);
 
   const getclubTitle =async() => {
-     const tit= await axios.get("http://localhost:5000/club", {kind:"Hiking"});
+     const tit= await axios.get("https://project2-3brood.herokuapp.com/club", {kind:"Hiking"});
     console.log("kind is", kind);
     console.log("title of club", tit.data);
   };

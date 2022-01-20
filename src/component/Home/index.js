@@ -32,7 +32,7 @@ function Home() {
         email: email,
         cart: cart,
       };
-      axios.put("http://localhost:5000/user", { email:email, id: id });
+      axios.put("https://project2-3brood.herokuapp.com/user", { email:email, id: id });
       sessionStorage.setItem("user", JSON.stringify(newUser));
  
     } else {
@@ -41,6 +41,62 @@ function Home() {
   };
 
 
+
+  
+  
+
+
+
+  const getPruduct1ById = async () => {
+    const data = await axios.get(
+      `https://project2-3brood.herokuapp.com/product/id/619a13a9cf5529131208bfa9`
+    );
+    // console.log(data.data);
+    console.log("product1",data.data);
+    setProduct1(data.data);
+  };
+
+  const getPruduct2ById = async () => {
+    const data = await axios.get(
+      `https://project2-3brood.herokuapp.com/product/id/619a19cccf5529131208bfaf`
+    );
+   
+    console.log("product2",data.data);
+    setProduct2(data.data);
+  };
+
+  
+  const getPruduct3ById = async () => {
+    const data = await axios.get(
+      `https://project2-3brood.herokuapp.com/product/id/619a1d51cf5529131208bfb3`
+    );
+   
+   console.log("product3",data.data);
+    setProduct3(data.data);
+  };
+  const getPruduct4ById = async () => {
+    const data = await axios.get(
+      `https://project2-3brood.herokuapp.com/product/id/619a240fcf5529131208bfb9`
+    );
+    console.log("product4",data.data);
+    setProduct4(data.data);
+  };
+  const getPruduct5ById = async () => {
+    const data = await axios.get(
+      `https://project2-3brood.herokuapp.com/product/id/619a332ccf5529131208bfcd`
+    );
+
+    console.log("product5",data.data);
+    setProduct5(data.data);
+  };
+  const getPruduct6ById = async () => {
+    const data = await axios.get(
+      `https://project2-3brood.herokuapp.com/product/id/619a59f2cf5529131208bfed`
+    );
+  
+    console.log("product6",data.data);
+    setProduct6(data.data);
+  };
 
   useEffect(() => {
     getPruduct1ById();
@@ -54,60 +110,6 @@ function Home() {
 
   
 
-
-
-  const getPruduct1ById = async () => {
-    const data = await axios.get(
-      `http://localhost:5000/product/id/619a13a9cf5529131208bfa9`
-    );
-    // console.log(data.data);
-
-    setProduct1(data.data);
-  };
-
-  const getPruduct2ById = async () => {
-    const data = await axios.get(
-      `http://localhost:5000/product/id/619a19cccf5529131208bfaf`
-    );
-   
-
-    setProduct2(data.data);
-  };
-
-  
-  const getPruduct3ById = async () => {
-    const data = await axios.get(
-      `http://localhost:5000/product/id/619a1d51cf5529131208bfb3`
-    );
-   
-
-    setProduct3(data.data);
-  };
-  const getPruduct4ById = async () => {
-    const data = await axios.get(
-      `http://localhost:5000/product/id/619a240fcf5529131208bfb9`
-    );
-   
-    setProduct4(data.data);
-  };
-  const getPruduct5ById = async () => {
-    const data = await axios.get(
-      `http://localhost:5000/product/id/619a332ccf5529131208bfcd`
-    );
-
-
-    setProduct5(data.data);
-  };
-  const getPruduct6ById = async () => {
-    const data = await axios.get(
-      `http://localhost:5000/product/id/619a59f2cf5529131208bfed`
-    );
-  
-
-    setProduct6(data.data);
-  };
-  
-
   return (
     <>
     <Header  />
@@ -116,16 +118,16 @@ function Home() {
         <div className="home-container">
           <img className="home-image" src={image} alt="image" />
           <div className="home-row">
-            <Product pro={product1} addToBasket={addToBasket}/>
-            <Product pro={product2} addToBasket={addToBasket}/>
+           {product1&& <Product pro={product1} addToBasket={addToBasket}/>}
+           {product2&& <Product pro={product2} addToBasket={addToBasket}/>}
           </div>
           <div className="home-row">
-            <Product pro={product3} addToBasket={addToBasket}/>
-            <Product pro={product4} addToBasket={addToBasket}/>
-            <Product pro={product5} addToBasket={addToBasket}/>
+            {product3&&<Product pro={product3} addToBasket={addToBasket}/>}
+            {product4&&<Product pro={product4} addToBasket={addToBasket}/>}
+           { product5&&<Product pro={product5} addToBasket={addToBasket}/>}
           </div>
           <div className="home-row">
-            <Product pro={product6} addToBasket={addToBasket}/>
+           {product6&& <Product pro={product6} addToBasket={addToBasket}/>}
           </div>
         </div>
       )}

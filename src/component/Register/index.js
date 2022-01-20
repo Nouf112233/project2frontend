@@ -16,7 +16,7 @@ function Register() {
   const navigate = useNavigate();
 
   const getAllusers = async () => {
-    const user = await axios.get("http://localhost:5000/user");
+    const user = await axios.get("https://project2-3brood.herokuapp.com/user");
     setUsers(user.data);
   };
 
@@ -35,7 +35,7 @@ function Register() {
       myWindow.document.write("<p>email existing</p>");
       myWindow.focus();
     } else if (x === 0) {
-      axios.post("http://localhost:5000/user", {
+      axios.post("https://project2-3brood.herokuapp.com/user", {
         username: username,
         email: email,
         password: password,

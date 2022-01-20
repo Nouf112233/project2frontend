@@ -31,7 +31,7 @@ const Product = ({pro}) => {
         email: email,
         cart: cart,
       };
-      axios.put("http://localhost:5000/user", { email:email, id: id });
+      axios.put("https://project2-3brood.herokuapp.com/user", { email:email, id: id });
       sessionStorage.setItem("user", JSON.stringify(newUser));
     } else {
       navigate("/signin");
@@ -47,7 +47,7 @@ const Product = ({pro}) => {
    lik++;
    setLike(!like);
    setProduct({_id:pro._id,kind:pro.kind,name:pro.name,specifications:pro.specifications,Notice:pro.Notice,price:pro.price,rating:lik,newe:pro.newe,image:pro.image,discound:pro.discound})
-   axios.put("http://localhost:5000/product/like", { rating:lik, id: id });
+   axios.put("https://project2-3brood.herokuapp.com/product/like", { rating:lik, id: id });
   }
 
   return (

@@ -12,7 +12,7 @@ function Signin() {
   const navigate = useNavigate();
 
   const getAllusers = async () => {
-    const user = await axios.get("http://localhost:5000/user");
+    const user = await axios.get("https://project2-3brood.herokuapp.com/user");
     setUsers(user.data);
   };
 

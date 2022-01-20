@@ -29,7 +29,7 @@ function Products() {
 
   const getAllPruduct = async () => {
     const product = await axios.get(
-      `http://localhost:5000/product/kind/${kind}`
+      `https://project2-3brood.herokuapp.com/product/kind/${kind}`
     );
 
     console.log(product.data);

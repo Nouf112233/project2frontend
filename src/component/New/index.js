@@ -13,7 +13,7 @@ function New() {
   const [newProducts, setNewProducts] = useState([]);
 
   const getAllPruduct = async () => {
-    const product = await axios.get(`http://localhost:5000/product/new`);
+    const product = await axios.get(`https://project2-3brood.herokuapp.com/product/new`);
     console.log(product.data);
     setNewProducts(product.data);
   };
