@@ -5,6 +5,7 @@ import "./style.css";
 import { useParams } from "react-router";
 import Image from "./camp1.png";
 import Product from "../Product";
+import env from "react-dotenv";
 
 function Search() {
   const [image] = useState(Image);
@@ -14,7 +15,7 @@ function Search() {
   let productInSearch = [];
 
   const getSearched = async () => {
-    const search = await axios.get("https://project2-3brood.herokuapp.com/product/search", {
+    const search = await axios.get(`${env.URL}/product/search`, {
       name: name,
     });
     search.data.forEach((element) => {

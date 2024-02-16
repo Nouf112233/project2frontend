@@ -9,6 +9,7 @@ import axios from "axios";
 import Notic from "../Notic";
 import Comments from "../Comments";
 import Footer from "../Footer";
+import env from "react-dotenv";
 
 function Description() {
   const navigate = useNavigate();
@@ -16,8 +17,9 @@ function Description() {
   const [product, setProduct] = useState(null);
   const [like, setLike] = useState(false);
 
+
   const getproduct = async () => {
-    const prod = await axios.get(`https://project2-3brood.herokuapp.com/product/id/${id}`);
+    const prod = await axios.get(`${env.URL}/product/id/${id}`);
     console.log("prpduct", prod.data);
     setProduct(prod.data);
   };
@@ -27,7 +29,7 @@ function Description() {
     lik++;
     setLike(!like);
     // setProduct({_id:pro._id,kind:pro.kind,name:pro.name,specifications:pro.specifications,Notice:pro.Notice,price:pro.price,rating:lik,newe:pro.newe,image:pro.image,discound:pro.discound})
-    axios.put("https://project2-3brood.herokuapp.com/product/like", { rating: lik, id: id });
+    axios.put(`${env.URL}/product/like`, { rating: lik, id: id });
   };
 
   const addToBasket = (id) => {
@@ -40,7 +42,7 @@ function Description() {
         email: email,
         cart: cart,
       };
-      axios.put("https://project2-3brood.herokuapp.com/user", { email: email, id: id });
+      axios.put(`${env.URL}/user`, { email: email, id: id });
       sessionStorage.setItem("user", JSON.stringify(newUser));
     } else {
       navigate("/signin");

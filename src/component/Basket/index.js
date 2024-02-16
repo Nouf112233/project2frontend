@@ -6,6 +6,7 @@ import { AiOutlineStar } from "react-icons/ai";
 import Subtotal from "../Subtotal";
 import "./style.css";
 import Footer from "../Footer";
+import env from "react-dotenv";
 
 function Basket() {
   const [basketProducts, setBasketProducts] = useState([]);
@@ -45,7 +46,7 @@ function Basket() {
   };
 
   const getproduct = async (item, length, i) => {
-    const product = await axios.get(`https://project2-3brood.herokuapp.com/product/id/${item}`);
+    const product = await axios.get(`${env.URL}/product/id/${item}`);
     productInBasket.push(product.data);
     console.log("productInBasket", productInBasket);
     inTotal += product.data.price;
@@ -74,7 +75,7 @@ function Basket() {
     };
     setRemove(!remove);
     setUser(newUser);
-    axios.delete(`https://project2-3brood.herokuapp.com/user`, { email: email, id: id });
+    axios.delete(`${env.URL}/user`, { email: email, id: id });
     sessionStorage.setItem("user", JSON.stringify(newUser));
   };
 

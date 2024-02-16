@@ -9,6 +9,7 @@ import "./style.css";
 import axios from "axios";
 import Product from "../Product";
 import Footer from "../Footer";
+import env from "react-dotenv";
 
 function Products() {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ function Products() {
 
   const getAllPruduct = async () => {
     const product = await axios.get(
-      `https://project2-3brood.herokuapp.com/product/kind/${kind}`
+      `${env.URL}/product/kind/${kind}`
     );
 
     console.log(product.data);

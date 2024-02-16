@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { AiOutlineStar } from "react-icons/ai";
-import './style.css'
+import './style.css';
+
 
 function CheckoutProduct({pro}) {
     const removeCart = (id) => {

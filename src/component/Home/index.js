@@ -4,6 +4,7 @@ import Header from "../Header";
 import axios from "axios";
 import Product from "../Product";
 import Image from "./camp1.png";
+import env from "react-dotenv";
 // import Slider from "../Slider";
 
 import "./style.css";
@@ -32,7 +33,7 @@ function Home() {
         email: email,
         cart: cart,
       };
-      axios.put("https://project2-3brood.herokuapp.com/user", { email:email, id: id });
+      axios.put(`${env.URL}/user`, { email:email, id: id });
       sessionStorage.setItem("user", JSON.stringify(newUser));
  
     } else {
@@ -44,12 +45,12 @@ function Home() {
 
   
   
-
+  
 
 
   const getPruduct1ById = async () => {
     const data = await axios.get(
-      `https://project2-3brood.herokuapp.com/product/id/619a13a9cf5529131208bfa9`
+      `${env.URL}/product/id/619a13a9cf5529131208bfa9`
     );
     // console.log(data.data);
     console.log("product1",data.data);
@@ -58,7 +59,7 @@ function Home() {
 
   const getPruduct2ById = async () => {
     const data = await axios.get(
-      `https://project2-3brood.herokuapp.com/product/id/619a19cccf5529131208bfaf`
+      `${env.URL}/product/id/619a19cccf5529131208bfaf`
     );
    
     console.log("product2",data.data);
@@ -68,7 +69,7 @@ function Home() {
   
   const getPruduct3ById = async () => {
     const data = await axios.get(
-      `https://project2-3brood.herokuapp.com/product/id/619a1d51cf5529131208bfb3`
+      `${env.URL}/product/id/619a1d51cf5529131208bfb3`
     );
    
    console.log("product3",data.data);
@@ -76,14 +77,14 @@ function Home() {
   };
   const getPruduct4ById = async () => {
     const data = await axios.get(
-      `https://project2-3brood.herokuapp.com/product/id/619a240fcf5529131208bfb9`
+      `${env.URL}/product/id/619a240fcf5529131208bfb9`
     );
     console.log("product4",data.data);
     setProduct4(data.data);
   };
   const getPruduct5ById = async () => {
     const data = await axios.get(
-      `https://project2-3brood.herokuapp.com/product/id/619a332ccf5529131208bfcd`
+      `${env.URL}/product/id/619a332ccf5529131208bfcd`
     );
 
     console.log("product5",data.data);
@@ -91,7 +92,7 @@ function Home() {
   };
   const getPruduct6ById = async () => {
     const data = await axios.get(
-      `https://project2-3brood.herokuapp.com/product/id/619a59f2cf5529131208bfed`
+      `${env.URL}/product/id/619a59f2cf5529131208bfed`
     );
   
     console.log("product6",data.data);

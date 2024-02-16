@@ -6,6 +6,7 @@ import Product from "../Product";
 import axios from "axios";
 import "./style.css";
 import Footer from "../Footer";
+import env from "react-dotenv";
 
 function New() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function New() {
   const [newProducts, setNewProducts] = useState([]);
 
   const getAllPruduct = async () => {
-    const product = await axios.get(`https://project2-3brood.herokuapp.com/product/new`);
+    const product = await axios.get(`${env.URL}/product/new`);
     console.log(product.data);
     setNewProducts(product.data);
   };

@@ -5,6 +5,7 @@ import { GrLike } from "react-icons/gr";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import axios from "axios";
 import "./style.css";
+import env from "react-dotenv";
 
 const Product = ({pro}) => {
 
@@ -31,7 +32,7 @@ const Product = ({pro}) => {
         email: email,
         cart: cart,
       };
-      axios.put("https://project2-3brood.herokuapp.com/user", { email:email, id: id });
+      axios.put(`${process.env.URL}/user`, { email:email, id: id });
       sessionStorage.setItem("user", JSON.stringify(newUser));
     } else {
       navigate("/signin");
@@ -47,7 +48,7 @@ const Product = ({pro}) => {
    lik++;
    setLike(!like);
    setProduct({_id:pro._id,kind:pro.kind,name:pro.name,specifications:pro.specifications,Notice:pro.Notice,price:pro.price,rating:lik,newe:pro.newe,image:pro.image,discound:pro.discound})
-   axios.put("https://project2-3brood.herokuapp.com/product/like", { rating:lik, id: id });
+   axios.put(`${env.URL}/product/like`, { rating:lik, id: id });
   }
 
   return (

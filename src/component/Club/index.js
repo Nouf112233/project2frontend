@@ -4,13 +4,14 @@ import { useParams } from "react-router";
 import Footer from "../Footer";
 import Header from "../Header";
 import "./style.css";
+import env from "react-dotenv";
 
 function Club() {
   const { kind } = useParams();
 //   const [title, setTitle] = useState([]);
 
   const getclubTitle =async() => {
-     const tit= await axios.get("https://project2-3brood.herokuapp.com/club", {kind:"Hiking"});
+     const tit= await axios.get(`${env.URL}/club`, {kind:"Hiking"});
     console.log("kind is", kind);
     console.log("title of club", tit.data);
   };

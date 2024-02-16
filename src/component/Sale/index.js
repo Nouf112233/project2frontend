@@ -6,6 +6,7 @@ import Product from "../Product";
 import axios from "axios";
 import "./style.css";
 import Footer from "../Footer";
+import env from "react-dotenv";
 
 function Sale() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function Sale() {
   const [saleProducts, setSaleProducts] = useState([]);
 
   const getAllPruduct = async () => {
-    const product = await axios.get(`https://project2-3brood.herokuapp.com/product/sale`);
+    const product = await axios.get(`${env.URL}/product/sale`);
     console.log(product.data);
     setSaleProducts(product.data);
   };

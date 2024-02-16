@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios';
-import './style.css'
+import './style.css';
+import env from "react-dotenv";
 
 function Notic(props) {
     const [name,setName]=useState("");
@@ -8,7 +9,7 @@ function Notic(props) {
     
     const addComment=()=>{
       
-        axios.put("https://project2-3brood.herokuapp.com/product/not", {id:props.id,Notice:[name,comment]})
+        axios.put(`${env.URL}/product/not`, {id:props.id,Notice:[name,comment]})
         console.log(comment);
     }
     

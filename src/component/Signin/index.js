@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from "./logo2.PNG";
 import "./style.css";
+import env from "react-dotenv";
 
 function Signin() {
   const [users, setUsers] = useState([]);
@@ -12,7 +13,7 @@ function Signin() {
   const navigate = useNavigate();
 
   const getAllusers = async () => {
-    const user = await axios.get("https://project2-3brood.herokuapp.com/user");
+    const user = await axios.get(`${env.URL}/user`);
     setUsers(user.data);
   };
 

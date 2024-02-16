@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from "./logo2.PNG";
 import "./style.css";
+import env from "react-dotenv";
 
 function Register() {
   const [users, setUsers] = useState([]);
@@ -16,7 +17,7 @@ function Register() {
   const navigate = useNavigate();
 
   const getAllusers = async () => {
-    const user = await axios.get("https://project2-3brood.herokuapp.com/user");
+    const user = await axios.get(`${env.URL}/user`);
     setUsers(user.data);
   };
 
@@ -35,7 +36,7 @@ function Register() {
       myWindow.document.write("<p>email existing</p>");
       myWindow.focus();
     } else if (x === 0) {
-      axios.post("https://project2-3brood.herokuapp.com/user", {
+      axios.post(`${env.URL}/user`, {
         username: username,
         email: email,
         password: password,
